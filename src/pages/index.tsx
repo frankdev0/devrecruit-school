@@ -27,7 +27,7 @@ export default function HomePage() {
             {/* //#region  //*============== Home Banner */}
             <div className='layout flex flex-row justify-center space-x-40'>
               <div>
-                <Ellipse className='h-72 w-72' />
+                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
               </div>
 
               <div className='flex flex-col'>
@@ -389,7 +389,7 @@ export default function HomePage() {
               </div>
 
               <div className='my-auto'>
-                <Ellipse className='h-72 w-72' />
+                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
               </div>
             </div>
             {/* //#endregion  //*============== Prepare */}
@@ -399,11 +399,11 @@ export default function HomePage() {
               <div className='mx-auto object-cover'>
                 <picture>
                   <source
-                    srcSet='/images/Rectangle_Temp.png'
+                    srcSet='/images/investing.jpg'
                     type='image/png'
                   />
                   <img
-                    src='/images/Rectangle_Temp.png'
+                    src='/images/investing.jpg'
                     alt='Landscape picture'
                     width='100%'
                   />

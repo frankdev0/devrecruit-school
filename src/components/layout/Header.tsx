@@ -7,8 +7,8 @@ import NextImage from '@/components/NextImage';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/', label: 'Courses' },
-  { href: '/', label: 'Contact' },
+  { href: '/courses', label: 'Courses' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -40,13 +40,13 @@ export default function Header() {
 
         <div className='flex flex-row gap-x-6'>
           <div className='my-auto'>
-            <UnstyledLink href='/'>Log In</UnstyledLink>
+            <UnstyledLink href='/login'>Log In</UnstyledLink>
           </div>
 
           <div className='my-auto h-8 w-px bg-black'></div>
 
           <div>
-            <ButtonLink href='/' className='rounded-3xl font-light text-black'>
+            <ButtonLink href='/register' className='rounded-3xl font-light text-black'>
               Enroll Now
             </ButtonLink>
           </div>

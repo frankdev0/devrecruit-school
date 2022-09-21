@@ -57,7 +57,7 @@ export default function About() {
             {/* //#region  //*============== Admission */}
             <div className='layout my-20 flex flex-row justify-between px-20'>
               <div className='my-auto'>
-                <Ellipse className='h-72 w-72' />
+                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
               </div>
 
               <div className='my-auto flex flex-col gap-y-14'>
@@ -67,7 +67,7 @@ export default function About() {
 
                 <div className='flex flex-col gap-y-16'>
                   <div className='flex flex-row gap-x-6'>
-                    <div className='text-[4.38rem] font-bold text-[#DDD]'>
+                    <div className='text-[4.38rem] font-bold text-[#DDD] my-auto'>
                       1
                     </div>
                     <div className='text-2xl'>
@@ -76,7 +76,7 @@ export default function About() {
                   </div>
 
                   <div className='flex flex-row gap-x-6'>
-                    <div className='text-[4.38rem] font-bold text-[#DDD]'>
+                    <div className='text-[4.38rem] font-bold text-[#DDD] my-auto'>
                       2
                     </div>
                     <div className='text-2xl'>
@@ -85,7 +85,7 @@ export default function About() {
                   </div>
 
                   <div className='flex flex-row gap-x-6'>
-                    <div className='text-[4.38rem] font-bold text-[#DDD]'>
+                    <div className='text-[4.38rem] font-bold text-[#DDD] my-auto'>
                       3
                     </div>
                     <div className='text-2xl'>
@@ -224,7 +224,7 @@ export default function About() {
               </div>
 
               <div className='my-auto'>
-                <Ellipse className='h-72 w-72' />
+                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
               </div>
             </div>
             {/* //#endregion  //*============== Prepare */}
@@ -234,11 +234,11 @@ export default function About() {
               <div className='mx-auto object-cover'>
                 <picture>
                   <source
-                    srcSet='/images/Rectangle_Temp.png'
+                    srcSet='/images/investing.jpg'
                     type='image/png'
                   />
                   <img
-                    src='/images/Rectangle_Temp.png'
+                    src='/images/investing.jpg'
                     alt='Landscape picture'
                     width='100%'
                   />
