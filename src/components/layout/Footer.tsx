@@ -50,7 +50,7 @@ export default function Footer() {
 
           <div className='flex flex-col gap-y-4'>
             <UnstyledLink href='/enrollment'>Enrollment</UnstyledLink>
-            <UnstyledLink href='/'>Careers</UnstyledLink>
+            <UnstyledLink href='/careers'>Careers</UnstyledLink>
             <UnstyledLink href='/faq'>FAQs</UnstyledLink>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Footer() {
           <div className='text-2xl font-medium'>Our Service</div>
 
           <div className='flex flex-col gap-y-4'>
-            <UnstyledLink href='/'>Courses</UnstyledLink>
+            <UnstyledLink href='/courses'>Courses</UnstyledLink>
             <UnstyledLink href='/'>Recruitment</UnstyledLink>
             <UnstyledLink href='/'>Event</UnstyledLink>
           </div>

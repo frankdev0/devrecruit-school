@@ -119,7 +119,7 @@ export default function Enrollment() {
 
                             <div className='flex flex-row mt-6'>
                                 <div>
-                                    <NextImage src='/images/devp5.jpg' alt='' width={750} height={500} />
+                                    <NextImage src='/images/suit.png' alt='' width={750} height={500} />
                                 </div>
 
                                 <div className='flex flex-col gap-y-4 lg:gap-y-10 bg-primary-800 text-white p-4 lg:p-10 min-w-[35rem] w-[44.5rem] h-[20.5rem] my-auto -ml-20 z-20 overflow-hidden'>
