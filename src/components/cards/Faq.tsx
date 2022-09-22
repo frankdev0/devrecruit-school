@@ -18,7 +18,7 @@ export default function FaqCard({ id, title, body, isOpen }: Props) {
 
     useEffect(() => {
         //* Make sure that the first faq is open by default */
-        if (id === '1') setOpen(true)
+        id === '1' && setOpen(true)
     }, [id])
 
 
@@ -33,7 +33,7 @@ export default function FaqCard({ id, title, body, isOpen }: Props) {
 
             <div className='absolute right-0 mr-6'>
                 {
-                    !open
+                    open
                         ? <Close onClick={toggleFaq} className='w-10 h-10 cursor-pointer' />
                         : <Add onClick={toggleFaq} className='w-10 h-10 cursor-pointer' />
                 }
