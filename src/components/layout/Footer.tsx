@@ -49,9 +49,9 @@ export default function Footer() {
           <div className='text-2xl font-medium'>About Us</div>
 
           <div className='flex flex-col gap-y-4'>
-            <UnstyledLink href='/'>Enrollment</UnstyledLink>
+            <UnstyledLink href='/enrollment'>Enrollment</UnstyledLink>
             <UnstyledLink href='/'>Careers</UnstyledLink>
-            <UnstyledLink href='/'>FAQs</UnstyledLink>
+            <UnstyledLink href='/faq'>FAQs</UnstyledLink>
           </div>
         </div>
 

@@ -92,3 +92,6 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/forms')],
 };
+
+
+// rounded-[1.25rem]  20px radius //**To be added */

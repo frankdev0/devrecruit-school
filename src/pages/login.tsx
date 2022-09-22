@@ -15,6 +15,7 @@ export default function Login() {
 
             <main className='my-20'>
                 <div className='flex flex-row'>
+                    {/* //#region  //*============== Form region */}
                     <div className='w-3/5 py-10 px-20'>
                         <div className='flex flex-col gap-y-10'>
                             <div className='flex flex-row justify-between'>
@@ -77,8 +78,9 @@ export default function Login() {
                             </div>
                         </div>
                     </div>
+                    {/* //#endregion  //*============== Form region */}
 
-
+                    {/* //#region  //*============== Content region */}
                     <div className='w-2/5 bg-primary-100 p-10'>
                         <div className='flex flex-col gap-y-10'>
                             <NextImage className='mx-auto' src='/images/device-frame.png' width={250} height={500} alt='' />
@@ -95,6 +97,7 @@ export default function Login() {
                         </div>
 
                     </div>
+                    {/* //#endregion  //*============== Content region */}
                 </div>
             </main>
         </Layout>
