@@ -11,14 +11,14 @@ export default function Footer() {
   return (
     <div className='relative'>
       <footer className='layout absolute bottom-2 flex flex-row justify-between text-gray-700'>
-        <div className='flex flex-col items-center space-y-6'>
+        <div className='flex flex-col items-center space-y-12'>
           <div>
             <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
               <NextImage
                 useSkeleton
                 className='z-10 -mb-10 w-36'
-                src='/images/DevrRecruit Training Logo.png'
-                width='100'
+                src='/images/logo.png'
+                width='200'
                 height='100'
                 alt='Icon'
               />

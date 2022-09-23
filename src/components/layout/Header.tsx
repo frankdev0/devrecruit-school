@@ -19,9 +19,9 @@ export default function Header() {
           <NextImage
             useSkeleton
             className='w-32 md:w-40'
-            src='/images/DevrRecruit Training Logo.png'
-            width='180'
-            height='180'
+            src='/images/logo.png'
+            width='185'
+            height='90'
             alt='Icon'
           />
         </UnstyledLink>
