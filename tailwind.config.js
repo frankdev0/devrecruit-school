@@ -5,6 +5,13 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      roman: 'upper-roman',
+    },
     extend: {
       fontFamily: {
         primary: ['Open Sans', ...fontFamily.sans],
@@ -92,6 +99,5 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/forms')],
 };
-
 
 // rounded-[1.25rem]  20px radius //**To be added */
