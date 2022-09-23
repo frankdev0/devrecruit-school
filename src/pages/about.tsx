@@ -102,11 +102,11 @@ export default function About() {
               <div className='mx-auto object-cover'>
                 <picture>
                   <source
-                    srcSet='/images/Curved_Black_Rectangle.png'
+                    srcSet='/images/about_merged.png'
                     type='image/png'
                   />
                   <img
-                    src='/images/Curved_Black_Rectangle.png'
+                    src='/images/about_merged.png'
                     alt=''
                     width='100%'
                   />
