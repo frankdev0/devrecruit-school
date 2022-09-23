@@ -28,3 +28,31 @@
   background-size: 100%;
   background-position: right;
 }
+
+#vision {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url('../../public/images/devp3.jpg');
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 100%;
+  background-size: cover;
+  background-size: 100%;
+  background-position: top;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+}

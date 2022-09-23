@@ -1,4 +1,5 @@
 import FaqCard from "./Faq";
+import InvestCard from "./Invest";
 import PrivacyCard from "./Privacy";
 
-export { FaqCard, PrivacyCard }
+export { FaqCard, InvestCard, PrivacyCard }

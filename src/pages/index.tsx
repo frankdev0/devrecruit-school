@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { InvestCard } from '@/components/cards';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import NextImage from '@/components/NextImage';
@@ -40,11 +41,12 @@ export default function HomePage() {
                     <div>Join the DevRecruit training school to build</div>
                     <div>industry demand technological skillset</div>
                   </div>
-                  <Ellipse_2 className='h-20 w-20' />
+
+                  <Ellipse_2 className='h-20 w-20 -translate-y-6' />
                 </div>
                 <div>
                   <ButtonLink
-                    href='/'
+                    href='/register'
                     className='rounded-3xl font-light text-black'
                   >
                     Enroll Now
@@ -55,10 +57,11 @@ export default function HomePage() {
             {/* //#endregion  //*============== Home Banner */}
 
             {/* //#region  //*============== Rewarding Career */}
-            <div className='layout my-24 flex flex-col items-center space-y-6'>
+            <div className='layout my-24 flex flex-col items-center gap-y-4'>
               <div className='text-3xl font-semibold'>
                 Do You Want to Start a Rewarding Career in Cybersecurity?
               </div>
+
               <div className='text-center'>
                 <div>
                   Here&apos;s a quick video to help you get started on your
@@ -66,26 +69,35 @@ export default function HomePage() {
                 <div>path to becoming a cybersecurity expert.</div>
               </div>
 
-              <NextImage
+              {/* <NextImage
                 src='/images/Rectangle 83.png'
                 width={800}
                 height={400}
                 alt='Video'
-              />
+                className='mt-4'
+              /> */}
+
+              <div className="flex justify-center w-full mt-4">
+                <iframe
+                  // width="853"
+                  // height="480"
+                  src={`https://www.youtube.com/embed/${'l8iPjUY37tM'}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Embedded youtube"
+                  className='rounded-lg w-[55.379rem] h-[23.5rem]'
+                />
+
+                <div className="absolute right-0 mr-72 mt-40">
+                  <Green_Ellipse className='w-12 h-12' />
+                </div>
+              </div>
             </div>
             {/* //#endregion  //*============== Rewarding Career */}
 
             {/* //#region  //*============== Vision, Mission and Goals */}
-            <div className='relative flex h-[800px] w-screen'>
-              <div className='absolute'>
-                <NextImage
-                  src='/images/Black_Rectangle.png'
-                  width={1700}
-                  height={700}
-                  alt=''
-                />
-              </div>
-
+            <div className='relative flex h-[43.63rem] w-screen mb-24 overflow-hidden' id='vision'>
               <div className='my-10 flex flex-col space-y-24 px-10'>
                 {/*//** * First Circle */}
                 <div className='flex flex-row'>
@@ -181,7 +193,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <ButtonLink
-                      href='/'
+                      href='/register'
                       className='rounded-3xl font-light text-black'
                     >
                       Enroll Now
@@ -192,8 +204,8 @@ export default function HomePage() {
                 <div>
                   <NextImage
                     src='/images/image 99.png'
-                    width={700}
-                    height={400}
+                    width={850}
+                    height={450}
                     alt=''
                   />
                 </div>
@@ -210,7 +222,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <ButtonLink
-                      href='/'
+                      href='/register'
                       className='rounded-3xl font-light text-black'
                     >
                       Enroll Now
@@ -231,7 +243,7 @@ export default function HomePage() {
             <div className='relative'>
               <div className='mx-auto object-cover'>
                 <picture>
-                  <source srcSet='/images/Black_Curve.png' type='image/png' />
+                  <source srcSet='/images/home_curve.png' type='image/png' />
                   <img
                     src='/images/Black_Curve.png'
                     alt='Landscape picture'
@@ -243,7 +255,7 @@ export default function HomePage() {
               </div>
 
               <div className='absolute inset-x-0 top-0 my-16 flex w-full flex-row justify-between px-20 text-white'>
-                <div className='flex w-1/2 flex-col gap-y-10'>
+                <div className='flex w-1/2 flex-col gap-y-8'>
                   <div className='text-lg'>OUR COURSES</div>
                   <div className='-mt-8 text-3xl'>Open For Enrollment</div>
                   <div className='text-[2.5rem] font-semibold'>
@@ -258,9 +270,9 @@ export default function HomePage() {
                     methods, and terminologies and policies.
                   </div>
 
-                  <div>
+                  <div className='-mt-2'>
                     <ButtonLink
-                      href='/'
+                      href='/register'
                       className='rounded-[1.25rem] bg-white px-8 py-3 font-light text-primary'
                     >
                       Enroll Now
@@ -270,45 +282,42 @@ export default function HomePage() {
 
                 <div className='flex flex-col space-y-48'>
                   <div>
-                    <ButtonLink
-                      href='/'
-                      className='h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary'
+                    <div
+                      className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary bg-gradient-to-r from-gray-300 to-white'
                     >
-                      <div className='flex w-full flex-row justify-between'>
+                      <div className='flex w-full flex-row justify-between my-auto'>
                         <div className='my-auto'>Security Principles</div>
                         <div className='my-auto'>
                           <Security_One className='w-8' />
                         </div>
                       </div>
-                    </ButtonLink>
+                    </div>
                   </div>
 
                   <div className='-ml-80'>
-                    <ButtonLink
-                      href='/'
-                      className='h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary'
+                    <div
+                      className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary bg-gradient-to-r from-gray-300 to-white'
                     >
-                      <div className='flex w-full flex-row justify-between'>
+                      <div className='flex w-full flex-row justify-between my-auto'>
                         <div className='my-auto'>Types of Security</div>
                         <div className='my-auto'>
                           <Security_Two className='w-8' />
                         </div>
                       </div>
-                    </ButtonLink>
+                    </div>
                   </div>
 
                   <div className='-ml-[40rem]'>
-                    <ButtonLink
-                      href='/'
-                      className='h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary'
+                    <div
+                      className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary bg-gradient-to-r from-gray-300 to-white'
                     >
-                      <div className='flex w-full flex-row justify-between'>
+                      <div className='flex w-full flex-row justify-between my-auto'>
                         <div className='my-auto'>Authentication</div>
                         <div className='my-auto'>
                           <Security_Three className='w-8' />
                         </div>
                       </div>
-                    </ButtonLink>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -320,7 +329,7 @@ export default function HomePage() {
               <div className='flex flex-row justify-between'>
                 <div className='text-lg'>Frequently Asked Questions</div>
                 <div className='-ml-60'>
-                  <Green_Ellipse_Thin className='-ml-96 h-14 w-14' />
+                  <Green_Ellipse_Thin className='-ml-[34rem] h-20 w-20' />
                 </div>
               </div>
 
@@ -338,12 +347,12 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className='mt-6 text-3xl font-medium'>
+              <div className='mt-2 text-3xl font-medium'>
                 Check Out Our Stories and Latest News
               </div>
 
               <div className='mt-14 flex flex-row'>
-                <div className='mr-6 flex flex-col gap-y-4'>
+                <div className='mr-6 flex flex-col gap-y-2'>
                   <div className='text-2xl font-semibold'>
                     What will the training be like?
                   </div>
@@ -354,7 +363,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className='flex flex-col gap-y-4 border-l border-r border-l-gray-400 border-r-gray-400 px-10'>
+                <div className='flex flex-col gap-y-2 border-l border-r border-l-gray-400 border-r-gray-400 px-10'>
                   <div className='text-2xl font-semibold'>
                     Is the training free?
                   </div>
@@ -364,7 +373,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className='ml-6 flex flex-col gap-y-4'>
+                <div className='ml-6 flex flex-col gap-y-2'>
                   <div className='text-2xl font-semibold'>
                     Will the training be videotaped?
                   </div>
@@ -380,7 +389,7 @@ export default function HomePage() {
 
             {/* //#region  //*============== Prepare */}
             <div className='layout my-20 flex flex-row justify-between px-20'>
-              <div className='my-auto flex flex-col gap-y-4'>
+              <div className='my-auto flex flex-col gap-y-3'>
                 <div className='text-3xl'>Prepare Yourself For The Future</div>
                 <div className='w-1/2 text-lg'>
                   With the DevRecruit e-learning and coaching school, you can
@@ -395,45 +404,7 @@ export default function HomePage() {
             {/* //#endregion  //*============== Prepare */}
 
             {/* //#region  //*============== Invest */}
-            <div className='layout relative mb-10'>
-              <div className='mx-auto object-cover'>
-                <picture>
-                  <source
-                    srcSet='/images/investing.jpg'
-                    type='image/png'
-                  />
-                  <img
-                    src='/images/investing.jpg'
-                    alt='Landscape picture'
-                    width='100%'
-                  />
-                </picture>
-              </div>
-
-              <div className='absolute inset-x-0 top-0 my-16 flex w-full flex-row justify-between px-60 text-white'>
-                <div className='my-auto text-right text-4xl font-extrabold leading-[3.84rem]'>
-                  <div>It&apos;s Time to Start</div>
-                  <div>Investing in Your Dream</div>
-                </div>
-
-                <div className='mt-10 flex flex-col gap-y-6'>
-                  <div className='text-2xl'>
-                    <div>Begin your journey of a long career by</div>
-                    <div>acquiring expertise and technical</div>
-                    <div>knowledge to enter the IT sector.</div>
-                  </div>
-
-                  <div>
-                    <ButtonLink
-                      href='/'
-                      className='rounded-[1.25rem] bg-white px-8 py-3 font-light text-primary'
-                    >
-                      Enroll Now
-                    </ButtonLink>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <InvestCard />
             {/* //#endregion  //*============== Invest */}
           </div>
         </section>
