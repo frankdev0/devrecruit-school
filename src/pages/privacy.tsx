@@ -69,6 +69,8 @@ export default function Privacy() {
             <Seo />
 
             <main className='my-20'>
+                <div className='text-[3.125rem] font-semibold pl-20 mt-10'>DevRecruit Training Privacy Policy</div>
+
                 <div className='flex flex-row'>
                     {/* //#region  //*============== Data region */}
                     <div className='py-10 pl-20 pr-72'>
