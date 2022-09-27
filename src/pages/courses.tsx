@@ -11,6 +11,29 @@ import Share from '~/svg/share.svg';
 import Star from '~/svg/star.svg';
 
 export default function Courses() {
+  const content = [
+    {
+      title: 'Introduction to Information/Cyber Security',
+      body: 'Learn the fundamental concepts required to recognize typical cyber threats and assaults and to defend yourself.'
+    },
+    {
+      title: `Evolution & Importance of Security`,
+      body: `Learn the fundamental concepts required to understand Evolution & Importance of Security.`,
+    },
+    {
+      title: `Types of Security Threats`,
+      body: `Get in-depth understanding and increase your knowledge of threats and cyber security information.`,
+    },
+    {
+      title: `Cyber Security Domain Map`,
+      body: `Learn the fundamental concepts of Telecommunications and Network Security. Information Security Governance and Risk Management. `,
+    },
+    {
+      title: `Security Principles`,
+      body: `Learn the fundamental concepts required to define the basic building blocks of any good security program.`,
+    }
+  ];
+
   return (
     <Layout isActive={['Courses']} isDark>
       {/* <Seo templateTitle='Home' /> */}
@@ -144,8 +167,35 @@ export default function Courses() {
                 </div>
               </div>
 
-              <div className='translate-y-1/4 -mt-10'>
+              <div className='translate-y-1/4 -mt-10 relative'>
                 <NextImage src='/images/device-frame.png' width={320} height={650} alt='' />
+
+                <div
+                  style={{
+                    background: 'linear-gradient(103.97deg, rgba(65, 131, 122, 0.49) 5.76%, #86C9C0 85.6%)',
+                    backdropFilter: 'blur(5px)'
+                  }}
+                  className='flex rounded-[1.875rem] h-[5.5rem] w-[21.3125rem] text-xl text-center absolute top-0 -ml-32 -mt-8'>
+                  <div className='m-auto'>Submit application form</div>
+                </div>
+
+                <div
+                  style={{
+                    background: 'linear-gradient(103.97deg, rgba(65, 131, 122, 0.49) 5.76%, #86C9C0 85.6%)',
+                    backdropFilter: 'blur(5px)'
+                  }}
+                  className='flex rounded-[1.875rem] h-[5.5rem] w-[21.3125rem] text-xl text-center absolute right-0 -mr-48 -mt-[25rem]'>
+                  <div className='m-auto'>Pay registration fee</div>
+                </div>
+
+                <div
+                  style={{
+                    background: 'linear-gradient(103.97deg, rgba(65, 131, 122, 0.49) 5.76%, #86C9C0 85.6%)',
+                    backdropFilter: 'blur(5px)'
+                  }}
+                  className='flex rounded-[1.875rem] h-[5.5rem] w-[21.3125rem] text-xl text-center absolute left-0 -ml-64 -mt-16'>
+                  <div className='m-auto'>Start taking classes</div>
+                </div>
               </div>
             </div>
             {/* //#endregion  //*============== Course Outcome */}
@@ -196,18 +246,18 @@ export default function Courses() {
                 </div>
 
 
-                {Array(5).fill(5).map((i) => (
+                {content.map((content, i) => (
                   <div key={i} className='rounded-[0.625rem] bg-black relative h-[200px] overflow-hidden'>
                     <div className='mx-auto object-cover'>
                       <picture>
                         <source
-                          srcSet='/images/Courses_Rectangle.png'
+                          srcSet={`/images/courses_${i + 1}.png`}
                           type='image/png'
                           width='100%'
                           height='200px'
                         />
                         <img
-                          src='/images/Courses_Rectangle.png'
+                          src={`/images/courses_${i + 1}.png`}
                           alt=''
                           width='100%'
                           height='200px'
@@ -217,8 +267,8 @@ export default function Courses() {
 
                     <div className='absolute inset-x-0 top-[33.3%] bottom-[33.3%] flex w-full px-10 flex-row justify-between text-white'>
                       <div className='flex flex-col w-3/4 gap-y-4'>
-                        <div className='text-2xl font-semibold'>Introduction to Information/Cyber Security</div>
-                        <div>Learn the fundamental concepts required to recognize typical cyber threats and assaults and to defend yourself.</div>
+                        <div className='text-2xl font-semibold'>{content.title}</div>
+                        <div>{content.body}</div>
                       </div>
 
                       <div className='my-auto'>

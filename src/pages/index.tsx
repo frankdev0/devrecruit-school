@@ -81,12 +81,13 @@ export default function HomePage() {
                 <iframe
                   // width="853"
                   // height="480"
-                  src={`https://www.youtube.com/embed/${'l8iPjUY37tM'}`}
+                  src={`https://www.youtube.com/embed/${'2C0lfBBUfFU'}?rel=0?playlist=2C0lfBBUfFU&version=3&autoplay=1&controls=0&&showinfo=0&loop=1`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   title="Embedded youtube"
                   className='rounded-lg w-[55.379rem] h-[23.5rem]'
+                  // className='rounded-lg w-[40.9rem] h-[23rem]'
                 />
 
                 <div className="absolute right-0 mr-72 mt-40">

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import SwiperCore, { Autoplay, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { InvestCard, Prepare } from '@/components/cards';
@@ -8,7 +9,8 @@ import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 
 import Green_Ellipse_Thin from '~/svg/Green_Ellipse_Thin.svg';
-import Gtb from '~/svg/gtb.svg';
+
+SwiperCore.use([Autoplay]);
 
 export default function About() {
   return (
@@ -184,40 +186,70 @@ export default function About() {
 
             {/* //#region  //*============== Swiper */}
             <div className='my-20 w-screen'>
-                <Swiper
-                  slidesPerView={4}
-                  // spaceBetween={5}
-                  slidesPerGroup={4}
-                  loop={true}
-                  // loopFillGroupWithBlank={true}
-                  className="custom_swiper mySwiper"
-                >
-                  <SwiperSlide className='my-8 custom_swiper_size'>
-                    <NextImage src='/images/sendbox2.png' alt='sendbox' width={180} height={50} />
-                  </SwiperSlide>
+              <Swiper
+                slidesPerView={4}
+                // spaceBetween={5}
+                freeMode
+                slidesPerGroup={4}
+                loop={true}
+                centeredSlides
+                modules={[FreeMode]}
+                autoplay={{
+                  "delay": 2000,
+                  "disableOnInteraction": false
+                }}
+                // loopFillGroupWithBlank={true}
+                className="custom_swiper mySwiper"
+              >
+                <SwiperSlide className='my-8 custom_swiper_size'>
+                  <NextImage src='/images/sendbox2.png' alt='sendbox' width={180} height={50} />
+                </SwiperSlide>
 
-                  <SwiperSlide className='custom_swiper_size'>
-                    <NextImage src='/images/smartfow.png' alt='smartfow' width={350} height={100} />
-                  </SwiperSlide>
+                <SwiperSlide className='custom_swiper_size'>
+                  <NextImage src='/images/smartfow.png' alt='smartfow' width={350} height={100} />
+                </SwiperSlide>
 
-                  <SwiperSlide className='my-6 custom_swiper_size'>
-                    <NextImage src='/images/tenecy.png' alt='tenecy' width={200} height={50} />
-                  </SwiperSlide>
+                <SwiperSlide className='my-6 custom_swiper_size'>
+                  <NextImage src='/images/tenecy.png' alt='tenecy' width={200} height={50} />
+                </SwiperSlide>
 
-                  <SwiperSlide className='my-6 custom_swiper_size'>
-                    {/* <Gtb className='w-20 h-20' /> */}
-                    <NextImage src='/images/gtb.png' alt='gtb' width={200} height={50} />
-                  </SwiperSlide>
+                <SwiperSlide className='my-6 custom_swiper_size'>
+                  <NextImage src='/images/gtb.png' alt='gtb' width={200} height={50} />
+                </SwiperSlide>
 
-                  <SwiperSlide className='my-6 custom_swiper_size'>
-                    <NextImage src='/images/capriconlogo.png' alt='capriconlogo' width={200} height={50} />
-                  </SwiperSlide>
+                <SwiperSlide className='my-6 custom_swiper_size'>
+                  <NextImage src='/images/capriconlogo.png' alt='capriconlogo' width={200} height={50} />
+                </SwiperSlide>
 
-                  <SwiperSlide className='my-8 custom_swiper_size w-[26.25rem]'>
-                    <NextImage src='/images/wallx.png' alt='wallx' width={180} height={50} />
-                  </SwiperSlide>
-                </Swiper>
-              </div>
+                <SwiperSlide className='my-8 custom_swiper_size w-[26.25rem]'>
+                  <NextImage src='/images/wallx.png' alt='wallx' width={180} height={50} />
+                </SwiperSlide>
+
+                <SwiperSlide className='my-8 custom_swiper_size'>
+                  <NextImage src='/images/sendbox2.png' alt='sendbox' width={180} height={50} />
+                </SwiperSlide>
+
+                <SwiperSlide className='custom_swiper_size'>
+                  <NextImage src='/images/smartfow.png' alt='smartfow' width={350} height={100} />
+                </SwiperSlide>
+
+                <SwiperSlide className='my-6 custom_swiper_size'>
+                  <NextImage src='/images/tenecy.png' alt='tenecy' width={200} height={50} />
+                </SwiperSlide>
+
+                <SwiperSlide className='my-6 custom_swiper_size'>
+                  <NextImage src='/images/gtb.png' alt='gtb' width={200} height={50} />
+                </SwiperSlide>
+
+                <SwiperSlide className='my-6 custom_swiper_size'>
+                  <NextImage src='/images/capriconlogo.png' alt='capriconlogo' width={200} height={50} />
+                </SwiperSlide>
+
+                <SwiperSlide className='my-8 custom_swiper_size w-[26.25rem]'>
+                  <NextImage src='/images/wallx.png' alt='wallx' width={180} height={50} />
+                </SwiperSlide>
+              </Swiper>
+            </div>
             {/* //#endregion  //*============== Swiper */}
 
             {/* //#region  //*============== Transform */}
