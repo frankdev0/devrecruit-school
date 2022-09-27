@@ -1,15 +1,27 @@
 import * as React from 'react';
 
 import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
+import Header, { HeaderDark } from '@/components/layout/Header';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+interface Props {
+  isNav?: boolean;
+  isDark?: boolean;
+  isFooter?: boolean;
+  children: React.ReactNode;
+  isActive?: string[] | undefined;
+}
+
+export default function Layout({ children, isNav = true, isFooter = true, isActive, isDark }: Props) {
   // Put Header or Footer Here
   return (
     <div className='flex min-h-screen w-screen flex-col'>
-      <Header />
+      {isNav && (
+        !isDark ?
+          <Header isActive={isActive} /> :
+          <HeaderDark isActive={isActive} />
+      )}
       <div className='mb-60'>{children}</div>
-      <Footer />
+      {isFooter && <Footer />}
     </div>
   );
 }

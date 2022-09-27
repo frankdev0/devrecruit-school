@@ -5,16 +5,20 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import NextImage from '@/components/NextImage';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/courses', label: 'Courses' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', label: 'Home', },
+  { href: '/about', label: 'About', },
+  { href: '/courses', label: 'Courses', },
+  { href: '/contact', label: 'Contact', },
 ];
 
-export default function Header() {
+interface Props {
+  isActive: string[] | undefined;
+}
+
+export default function Header({ isActive }: Props) {
   return (
-    <header className='top-0 z-50 bg-white'>
-      <div className='layout flex h-14 items-center justify-between pt-10'>
+    <header className='top-0 z-50'>
+      <div className='layout flex h-14 items-center justify-between pt-10 text-xl font-semibold'>
         <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
           <NextImage
             useSkeleton
@@ -27,10 +31,10 @@ export default function Header() {
         </UnstyledLink>
 
         <nav>
-          <ul className='flex items-center justify-between space-x-20'>
+          <ul className='flex items-center justify-between space-x-20 ml-16'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
-                <UnstyledLink href={href} className='hover:text-gray-600'>
+                <UnstyledLink href={href} className={`hover:text-primary-600 ${isActive?.includes(label) && 'text-primary-600 hover:text-white'}`}>
                   {label}
                 </UnstyledLink>
               </li>
@@ -39,7 +43,52 @@ export default function Header() {
         </nav>
 
         <div className='flex flex-row gap-x-6'>
-          <div className='my-auto'>
+          <div className={`my-auto hover:text-primary-600 ${isActive?.includes('Login') && 'text-gray-600'}`}>
+            <UnstyledLink href='/login'>Log In</UnstyledLink>
+          </div>
+
+          <div className='my-auto h-8 w-px bg-black'></div>
+
+          <div>
+            <ButtonLink href='/register' className='rounded-3xl font-light text-black'>
+              Enroll Now
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export function HeaderDark({ isActive }: Props) {
+  return (
+    <header className='top-0 z-50'>
+      <div className='layout flex h-14 items-center justify-between pt-10 text-xl font-semibold'>
+        <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
+          <NextImage
+            useSkeleton
+            className='w-32 md:w-40'
+            src='/images/logo.png'
+            width='185'
+            height='90'
+            alt='Icon'
+          />
+        </UnstyledLink>
+
+        <nav>
+          <ul className='flex items-center justify-between space-x-20 ml-16'>
+            {links.map(({ href, label }) => (
+              <li key={`${href}${label}`}>
+                <UnstyledLink href={href} className={`text-white hover:text-primary-600 ${isActive?.includes(label) && 'text-primary-600'}`}>
+                  {label}
+                </UnstyledLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className='flex flex-row gap-x-6'>
+          <div className="my-auto hover:text-primary-600 text-gray-500">
             <UnstyledLink href='/login'>Log In</UnstyledLink>
           </div>
 

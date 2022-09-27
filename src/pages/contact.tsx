@@ -15,7 +15,7 @@ import Star from '~/svg/star.svg';
 
 export default function Contact() {
     return (
-        <Layout>
+        <Layout isActive={['Contact']}>
             {/* <Seo templateTitle='Home' /> */}
             <Seo />
 

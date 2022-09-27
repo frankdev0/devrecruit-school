@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { InvestCard } from '@/components/cards';
+import { InvestCard, Prepare } from '@/components/cards';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import NextImage from '@/components/NextImage';
@@ -18,7 +18,7 @@ import White_Ellipse from '~/svg/White_Ellipse.svg';
 
 export default function HomePage() {
   return (
-    <Layout>
+    <Layout isActive={['Home']}>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
@@ -201,18 +201,45 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div>
+                <div className='relative'>
                   <NextImage
                     src='/images/image 99.png'
                     width={850}
                     height={450}
                     alt=''
                   />
+
+                  <div className='absolute top-0 right-0'>
+                    <NextImage
+                      src='/images/float1.png'
+                      width={300}
+                      height={80}
+                      alt=''
+                    />
+                  </div>
+
+                  <div className='absolute bottom-0 right-0 mr-6'>
+                    <NextImage
+                      src='/images/float2.png'
+                      width={300}
+                      height={100}
+                      alt=''
+                    />
+                  </div>
+
+                  <div className='absolute left-0 -ml-20 -mt-32'>
+                    <NextImage
+                      src='/images/float3.png'
+                      width={300}
+                      height={100}
+                      alt=''
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className='mt-10 flex flex-col'>
-                <div className='flex flex-col gap-y-4'>
+              <div className='mt-36 grid grid-cols-3'>
+                <div className='flex flex-col gap-y-4 col-span-1'>
                   <div className='text-3xl font-medium'>
                     Here’s Why You Should Enroll
                   </div>
@@ -230,9 +257,58 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div></div>
+                <div className='col-span-2 -ml-80 -mt-14 relative'>
+                  {/* <NextImage src='/images/thread.png' alt='' /> */}
+                  <picture>
+                    <source srcSet='/images/thread.png' type='image/png' />
+                    <img
+                      src='/images/thread.png'
+                      alt=''
+                      width='80%'
+                    />
+                  </picture>
 
-                <div className='mt-40'>
+                  <div className='flex flex-col gap-y-2 absolute left-[22%] -mt-6'>
+                    <div className='flex flex-row'>
+                      <div className='text-2xl font-semibold'>Level-Up Your Skills</div>
+                      <div className='text-[6.25rem] font-bold text-gray-300 -mt-4'>1</div>
+                    </div>
+
+                    <div className='text-lg'>
+                      <div>Become more knowledgeable and</div>
+                      <div>proficient in the newest models</div>
+                      <div>and methods used in the tech business.</div>
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col gap-y-2 absolute left-[59%] -mt-[11.4rem]'>
+                    <div className='flex flex-row gap-x-2'>
+                      <div className='text-2xl font-semibold'>Build a Portfolio</div>
+                      <div className='text-[6.25rem] font-bold text-gray-300 -mt-4'>2</div>
+                    </div>
+
+                    <div className='text-lg'>
+                      <div>Work on projects and internships</div>
+                      <div>to build your portfolio and</div>
+                      <div>gain experience.</div>
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col gap-y-2 absolute left-[76%] -mt-[26rem]'>
+                    <div className='flex flex-row gap-x-2'>
+                      <div className='text-2xl font-semibold'>Get your Dream Job</div>
+                      <div className='text-[6.25rem] font-bold text-gray-300 -mt-4'>3</div>
+                    </div>
+
+                    <div className='text-lg'>
+                      <div>Apply to and work in any corporation</div>
+                      <div>of your choice for a high</div>
+                      <div>incentive and remuneration.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className='mt-10'>
                   <Green_Ellipse className='h-10 w-10' />
                 </div>
               </div>
@@ -325,7 +401,7 @@ export default function HomePage() {
             {/* //#endregion  //*============== Cyber */}
 
             {/* //#region  //*============== FAQ */}
-            <div className='layout my-10 flex flex-col'>
+            <div className='layout my-6 flex flex-col'>
               <div className='flex flex-row justify-between'>
                 <div className='text-lg'>Frequently Asked Questions</div>
                 <div className='-ml-60'>
@@ -388,19 +464,7 @@ export default function HomePage() {
             {/* //#endregion  //*============== FAQ */}
 
             {/* //#region  //*============== Prepare */}
-            <div className='layout my-20 flex flex-row justify-between px-20'>
-              <div className='my-auto flex flex-col gap-y-3'>
-                <div className='text-3xl'>Prepare Yourself For The Future</div>
-                <div className='w-1/2 text-lg'>
-                  With the DevRecruit e-learning and coaching school, you can
-                  improve your abilities and prepare for that dream IT job.
-                </div>
-              </div>
-
-              <div className='my-auto'>
-                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
-              </div>
-            </div>
+            <Prepare />
             {/* //#endregion  //*============== Prepare */}
 
             {/* //#region  //*============== Invest */}

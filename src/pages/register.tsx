@@ -8,11 +8,10 @@ import Seo from '@/components/Seo'
 
 export default function Register() {
     return (
-        <Layout>
-            {/* <Seo templateTitle='Home' /> */}
+        <>
             <Seo />
 
-            <main className='my-20'>
+            <main className=''>
                 <div className='flex flex-row'>
                     <div className='w-3/5 py-10 px-20'>
                         <div className='flex flex-col gap-y-10'>
@@ -22,9 +21,9 @@ export default function Register() {
                                     <ArrowLink
                                         as={UnstyledLink}
                                         className='inline-flex items-center my-auto'
-                                        href='/'
+                                        href='/login'
                                     >
-                                        New to DevTraining? Log in
+                                        Already on DevTraining? Log in
                                     </ArrowLink>
                                 </div>
                             </div>
@@ -136,14 +135,14 @@ export default function Register() {
                                     <div>»</div>
                                     <div>20 Resources</div>
                                 </div>
-                                
+
                             </div>
 
                             <div className='text-center'>
                                 <ArrowLink
                                     as={UnstyledLink}
                                     className='inline-flex items-center my-auto'
-                                    href='/'
+                                    href='/contact'
                                 >
                                     Having trouble logging in? Learner help center
                                 </ArrowLink>
@@ -153,6 +152,7 @@ export default function Register() {
                     </div>
                 </div>
             </main>
-        </Layout>
+        </>
+
     )
 }

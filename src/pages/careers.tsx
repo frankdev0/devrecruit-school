@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
-import { InvestCard } from '@/components/cards';
+import { InvestCard, Prepare } from '@/components/cards';
 import Layout from '@/components/layout/Layout';
 import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
@@ -126,19 +126,7 @@ export default function Careers() {
                         {/* //#endregion  //*============== Open Positions */}
 
                         {/* //#region  //*============== Prepare */}
-                        <div className='layout my-20 flex flex-row justify-between px-20'>
-                            <div className='my-auto flex flex-col gap-y-4'>
-                                <div className='text-3xl'>Prepare Yourself For The Future</div>
-                                <div className='w-1/2 text-lg'>
-                                    With the DevRecruit e-learning and coaching school, you can
-                                    improve your abilities and prepare for that dream IT job.
-                                </div>
-                            </div>
-
-                            <div className='my-auto'>
-                                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
-                            </div>
-                        </div>
+                        <Prepare />
                         {/* //#endregion  //*============== Prepare */}
 
                         {/* //#region  //*============== Invest */}

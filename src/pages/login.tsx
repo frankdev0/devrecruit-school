@@ -9,14 +9,14 @@ import Seo from '@/components/Seo'
 
 export default function Login() {
     return (
-        <Layout>
+        <>
             {/* <Seo templateTitle='Home' /> */}
             <Seo />
 
-            <main className='my-20'>
-                <div className='flex flex-row'>
+            <main className=''>
+                <div className='flex flex-row h-screen'>
                     {/* //#region  //*============== Form region */}
-                    <div className='w-3/5 py-10 px-20'>
+                    <div className='w-3/5 py-40 px-20'>
                         <div className='flex flex-col gap-y-10'>
                             <div className='flex flex-row justify-between'>
                                 <div className='text-3xl font-semibold text-primary my-auto'>Login</div>
@@ -24,9 +24,9 @@ export default function Login() {
                                     <ArrowLink
                                         as={UnstyledLink}
                                         className='inline-flex items-center my-auto'
-                                        href='/'
+                                        href='/register'
                                     >
-                                        New to DevTraining? Log in
+                                        New to DevTraining? Register
                                     </ArrowLink>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ export default function Login() {
                     {/* //#endregion  //*============== Form region */}
 
                     {/* //#region  //*============== Content region */}
-                    <div className='w-2/5 bg-primary-100 p-10'>
+                    <div className='w-2/5 bg-primary-100 py-40 px-10'>
                         <div className='flex flex-col gap-y-10'>
                             <NextImage className='mx-auto' src='/images/device-frame.png' width={250} height={500} alt='' />
 
@@ -89,7 +89,7 @@ export default function Login() {
                                 <ArrowLink
                                     as={UnstyledLink}
                                     className='inline-flex items-center my-auto'
-                                    href='/'
+                                    href='/contact'
                                 >
                                     Having trouble logging in? Learner help center
                                 </ArrowLink>
@@ -100,6 +100,6 @@ export default function Login() {
                     {/* //#endregion  //*============== Content region */}
                 </div>
             </main>
-        </Layout>
+        </>
     )
 }

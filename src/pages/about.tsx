@@ -1,26 +1,28 @@
 import * as React from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { InvestCard } from '@/components/cards';
+import { InvestCard, Prepare } from '@/components/cards';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 
 import Green_Ellipse_Thin from '~/svg/Green_Ellipse_Thin.svg';
+import Gtb from '~/svg/gtb.svg';
 
 export default function About() {
   return (
-    <Layout>
+    <Layout isActive={['About']}>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
       <main className='mt-20'>
-        <div className='absolute top-0 right-0 z-50'>
+        <div className='absolute top-0 right-0 z-0 -mt-20'>
           <NextImage
-            src='/images/Image_Ellipse.png'
+            src='/images/about_curve.png'
             alt=''
-            width={550}
-            height={550}
+            width={750}
+            height={750}
           />
         </div>
 
@@ -180,6 +182,44 @@ export default function About() {
             </div>
             {/* //#endregion  //*============== Why */}
 
+            {/* //#region  //*============== Swiper */}
+            <div className='my-20 w-screen'>
+                <Swiper
+                  slidesPerView={4}
+                  // spaceBetween={5}
+                  slidesPerGroup={4}
+                  loop={true}
+                  // loopFillGroupWithBlank={true}
+                  className="custom_swiper mySwiper"
+                >
+                  <SwiperSlide className='my-8 custom_swiper_size'>
+                    <NextImage src='/images/sendbox2.png' alt='sendbox' width={180} height={50} />
+                  </SwiperSlide>
+
+                  <SwiperSlide className='custom_swiper_size'>
+                    <NextImage src='/images/smartfow.png' alt='smartfow' width={350} height={100} />
+                  </SwiperSlide>
+
+                  <SwiperSlide className='my-6 custom_swiper_size'>
+                    <NextImage src='/images/tenecy.png' alt='tenecy' width={200} height={50} />
+                  </SwiperSlide>
+
+                  <SwiperSlide className='my-6 custom_swiper_size'>
+                    {/* <Gtb className='w-20 h-20' /> */}
+                    <NextImage src='/images/gtb.png' alt='gtb' width={200} height={50} />
+                  </SwiperSlide>
+
+                  <SwiperSlide className='my-6 custom_swiper_size'>
+                    <NextImage src='/images/capriconlogo.png' alt='capriconlogo' width={200} height={50} />
+                  </SwiperSlide>
+
+                  <SwiperSlide className='my-8 custom_swiper_size w-[26.25rem]'>
+                    <NextImage src='/images/wallx.png' alt='wallx' width={180} height={50} />
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+            {/* //#endregion  //*============== Swiper */}
+
             {/* //#region  //*============== Transform */}
             <div className='layout mb-20 flex flex-col'>
               <div className='flex flex-row justify-between'>
@@ -214,19 +254,7 @@ export default function About() {
             {/* //#endregion  //*============== Transform */}
 
             {/* //#region  //*============== Prepare */}
-            <div className='layout my-20 flex flex-row justify-between px-20'>
-              <div className='my-auto flex flex-col gap-y-4'>
-                <div className='text-3xl'>Prepare Yourself For The Future</div>
-                <div className='w-1/2 text-lg'>
-                  With the DevRecruit e-learning and coaching school, you can
-                  improve your abilities and prepare for that dream IT job.
-                </div>
-              </div>
-
-              <div className='my-auto'>
-                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
-              </div>
-            </div>
+            <Prepare />
             {/* //#endregion  //*============== Prepare */}
 
             {/* //#region  //*============== Invest */}

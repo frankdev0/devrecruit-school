@@ -56,3 +56,17 @@
   width: 50%;
   position: absolute;
 }
+
+.swiper {
+  width: 600px;
+  height: 300px;
+}
+
+.custom_swiper {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.custom_swiper_size {
+  width: 20rem !important;
+}
