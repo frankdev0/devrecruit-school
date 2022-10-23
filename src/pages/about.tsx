@@ -1,11 +1,10 @@
 import * as React from 'react';
 import SwiperCore, { Autoplay, FreeMode } from 'swiper';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { InvestCard, Prepare } from '@/components/cards';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
-import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 
 import Green_Ellipse_Thin from '~/svg/Green_Ellipse_Thin.svg';
@@ -20,12 +19,7 @@ export default function About() {
 
       <main className='mt-20'>
         <div className='absolute top-0 right-0 z-0 -mt-20'>
-          <NextImage
-            src='/images/about_curve.png'
-            alt=''
-            width={750}
-            height={750}
-          />
+          <img src='/images/about_curve.png' alt='' width={750} height={750} />
         </div>
 
         <div>
@@ -61,7 +55,7 @@ export default function About() {
             {/* //#region  //*============== Admission */}
             <div className='layout my-20 flex flex-row justify-between px-20'>
               <div className='my-auto'>
-                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
+                <img src='/images/apply.png' alt='' width={480} height={300} />
               </div>
 
               <div className='my-auto flex flex-col gap-y-14'>
@@ -71,7 +65,7 @@ export default function About() {
 
                 <div className='flex flex-col gap-y-16'>
                   <div className='flex flex-row gap-x-6'>
-                    <div className='text-[4.38rem] font-bold text-[#DDD] my-auto'>
+                    <div className='my-auto text-[4.38rem] font-bold text-[#DDD]'>
                       1
                     </div>
                     <div className='text-2xl'>
@@ -80,7 +74,7 @@ export default function About() {
                   </div>
 
                   <div className='flex flex-row gap-x-6'>
-                    <div className='text-[4.38rem] font-bold text-[#DDD] my-auto'>
+                    <div className='my-auto text-[4.38rem] font-bold text-[#DDD]'>
                       2
                     </div>
                     <div className='text-2xl'>
@@ -89,7 +83,7 @@ export default function About() {
                   </div>
 
                   <div className='flex flex-row gap-x-6'>
-                    <div className='text-[4.38rem] font-bold text-[#DDD] my-auto'>
+                    <div className='my-auto text-[4.38rem] font-bold text-[#DDD]'>
                       3
                     </div>
                     <div className='text-2xl'>
@@ -105,21 +99,14 @@ export default function About() {
             <div className='relative'>
               <div className='mx-auto object-cover'>
                 <picture>
-                  <source
-                    srcSet='/images/about_merged.png'
-                    type='image/png'
-                  />
-                  <img
-                    src='/images/about_merged.png'
-                    alt=''
-                    width='100%'
-                  />
+                  <source srcSet='/images/about_merged.png' type='image/png' />
+                  <img src='/images/about_merged.png' alt='' width='100%' />
                 </picture>
               </div>
 
               <div className='absolute inset-x-0 top-0 my-16 flex w-full translate-y-1/2 flex-row justify-between text-white'>
                 <div className=''>
-                  <NextImage
+                  <img
                     src='/images/devp5.jpg'
                     width={600}
                     height={400}
@@ -195,58 +182,118 @@ export default function About() {
                 centeredSlides
                 modules={[FreeMode]}
                 autoplay={{
-                  "delay": 2000,
-                  "disableOnInteraction": false
+                  delay: 2000,
+                  disableOnInteraction: false,
                 }}
                 // loopFillGroupWithBlank={true}
-                className="custom_swiper mySwiper"
+                className='custom_swiper mySwiper'
               >
-                <SwiperSlide className='my-8 custom_swiper_size'>
-                  <NextImage src='/images/sendbox2.png' alt='sendbox' width={180} height={50} />
+                <SwiperSlide className='custom_swiper_size my-8'>
+                  <img
+                    src='/images/sendbox2.png'
+                    alt='sendbox'
+                    width={180}
+                    height={50}
+                  />
                 </SwiperSlide>
 
                 <SwiperSlide className='custom_swiper_size'>
-                  <NextImage src='/images/smartfow.png' alt='smartfow' width={350} height={100} />
+                  <img
+                    src='/images/smartfow.png'
+                    alt='smartfow'
+                    width={350}
+                    height={100}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-6 custom_swiper_size'>
-                  <NextImage src='/images/tenecy.png' alt='tenecy' width={200} height={50} />
+                <SwiperSlide className='custom_swiper_size my-6'>
+                  <img
+                    src='/images/tenecy.png'
+                    alt='tenecy'
+                    width={200}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-6 custom_swiper_size'>
-                  <NextImage src='/images/gtb.png' alt='gtb' width={200} height={50} />
+                <SwiperSlide className='custom_swiper_size my-6'>
+                  <img
+                    src='/images/gtb.png'
+                    alt='gtb'
+                    width={200}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-6 custom_swiper_size'>
-                  <NextImage src='/images/capriconlogo.png' alt='capriconlogo' width={200} height={50} />
+                <SwiperSlide className='custom_swiper_size my-6'>
+                  <img
+                    src='/images/capriconlogo.png'
+                    alt='capriconlogo'
+                    width={200}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-8 custom_swiper_size w-[26.25rem]'>
-                  <NextImage src='/images/wallx.png' alt='wallx' width={180} height={50} />
+                <SwiperSlide className='custom_swiper_size my-8 w-[26.25rem]'>
+                  <img
+                    src='/images/wallx.png'
+                    alt='wallx'
+                    width={180}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-8 custom_swiper_size'>
-                  <NextImage src='/images/sendbox2.png' alt='sendbox' width={180} height={50} />
+                <SwiperSlide className='custom_swiper_size my-8'>
+                  <img
+                    src='/images/sendbox2.png'
+                    alt='sendbox'
+                    width={180}
+                    height={50}
+                  />
                 </SwiperSlide>
 
                 <SwiperSlide className='custom_swiper_size'>
-                  <NextImage src='/images/smartfow.png' alt='smartfow' width={350} height={100} />
+                  <img
+                    src='/images/smartfow.png'
+                    alt='smartfow'
+                    width={350}
+                    height={100}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-6 custom_swiper_size'>
-                  <NextImage src='/images/tenecy.png' alt='tenecy' width={200} height={50} />
+                <SwiperSlide className='custom_swiper_size my-6'>
+                  <img
+                    src='/images/tenecy.png'
+                    alt='tenecy'
+                    width={200}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-6 custom_swiper_size'>
-                  <NextImage src='/images/gtb.png' alt='gtb' width={200} height={50} />
+                <SwiperSlide className='custom_swiper_size my-6'>
+                  <img
+                    src='/images/gtb.png'
+                    alt='gtb'
+                    width={200}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-6 custom_swiper_size'>
-                  <NextImage src='/images/capriconlogo.png' alt='capriconlogo' width={200} height={50} />
+                <SwiperSlide className='custom_swiper_size my-6'>
+                  <img
+                    src='/images/capriconlogo.png'
+                    alt='capriconlogo'
+                    width={200}
+                    height={50}
+                  />
                 </SwiperSlide>
 
-                <SwiperSlide className='my-8 custom_swiper_size w-[26.25rem]'>
-                  <NextImage src='/images/wallx.png' alt='wallx' width={180} height={50} />
+                <SwiperSlide className='custom_swiper_size my-8 w-[26.25rem]'>
+                  <img
+                    src='/images/wallx.png'
+                    alt='wallx'
+                    width={180}
+                    height={50}
+                  />
                 </SwiperSlide>
               </Swiper>
             </div>
@@ -256,7 +303,7 @@ export default function About() {
             <div className='layout mb-20 flex flex-col'>
               <div className='flex flex-row justify-between'>
                 <div>
-                  <NextImage
+                  <img
                     src='/images/devp6.jpg'
                     width={600}
                     height={400}

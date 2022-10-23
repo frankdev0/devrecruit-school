@@ -1,12 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 
 import { InvestCard, Prepare } from '@/components/cards';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
-import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 
-import Ellipse from '~/svg/Ellipse temp.svg';
 import Ellipse_2 from '~/svg/Ellipse_2.svg';
 import Green_Ellipse from '~/svg/Green_Ellipse.svg';
 import Green_Ellipse_Thin from '~/svg/Green_Ellipse_Thin.svg';
@@ -28,18 +27,18 @@ export default function HomePage() {
             {/* //#region  //*============== Home Banner */}
             <div className='layout flex flex-row justify-center space-x-40'>
               <div>
-                <NextImage src='/images/apply.png' alt='' width={480} height={300} />
+                <img src='/images/apply.png' alt='' width={480} height={300} />
               </div>
 
               <div className='flex flex-col'>
-                <div className='text-5xl leading-[4.7rem]'>
-                  <div>Kickstart Your Career</div>
-                  <div>in the IT Industry</div>
+                <div className='text-5xl leading-[3.7rem]'>
+                  <div>Kick-start Your</div>
+                  <div>Career in IT</div>
                 </div>
                 <div className='flex flex-row space-x-6 text-2xl'>
                   <div>
-                    <div>Join the DevRecruit training school to build</div>
-                    <div>industry demand technological skillset</div>
+                    <div>Join the DevRecruit school to build</div>
+                    <div>in-demand IT skills</div>
                   </div>
 
                   <Ellipse_2 className='h-20 w-20 -translate-y-6' />
@@ -69,7 +68,7 @@ export default function HomePage() {
                 <div>path to becoming a cybersecurity expert.</div>
               </div>
 
-              {/* <NextImage
+              {/* <img
                 src='/images/Rectangle 83.png'
                 width={800}
                 height={400}
@@ -77,28 +76,31 @@ export default function HomePage() {
                 className='mt-4'
               /> */}
 
-              <div className="flex justify-center w-full mt-4">
+              <div className='mt-4 flex w-full justify-center'>
                 <iframe
                   // width="853"
                   // height="480"
                   src={`https://www.youtube.com/embed/${'2C0lfBBUfFU'}?rel=0?playlist=2C0lfBBUfFU&version=3&autoplay=1&controls=0&&showinfo=0&loop=1`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  frameBorder='0'
+                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                   allowFullScreen
-                  title="Embedded youtube"
-                  className='rounded-lg w-[55.379rem] h-[23.5rem]'
+                  title='Embedded youtube'
+                  className='h-[23.5rem] w-[55.379rem] rounded-lg'
                   // className='rounded-lg w-[40.9rem] h-[23rem]'
                 />
 
-                <div className="absolute right-0 mr-72 mt-40">
-                  <Green_Ellipse className='w-12 h-12' />
+                <div className='absolute right-0 mr-72 mt-40'>
+                  <Green_Ellipse className='h-12 w-12' />
                 </div>
               </div>
             </div>
             {/* //#endregion  //*============== Rewarding Career */}
 
             {/* //#region  //*============== Vision, Mission and Goals */}
-            <div className='relative flex h-[43.63rem] w-screen mb-24 overflow-hidden' id='vision'>
+            <div
+              className='relative mb-24 flex h-[43.63rem] w-screen overflow-hidden'
+              id='vision'
+            >
               <div className='my-10 flex flex-col space-y-24 px-10'>
                 {/*//** * First Circle */}
                 <div className='flex flex-row'>
@@ -117,9 +119,9 @@ export default function HomePage() {
 
                   <div className='z-20 mt-10 text-xl font-semibold text-white'>
                     <div>We see a world in which anyone, anywhere</div>
-                    <div>would obtain the necessary training to build</div>
+                    <div>would obtain the necessary training to</div>
                     <div>
-                      a portfolio and begin a career in the IT industry.
+                      begin a career in the IT industry.
                     </div>
                   </div>
                 </div>
@@ -143,7 +145,7 @@ export default function HomePage() {
                   <div className='z-20 mt-10 text-xl font-semibold text-white'>
                     <div>To ensure that the IT sector has capable</div>
                     <div>technical capacities that can compete on</div>
-                    <div>both the national and international levels.</div>
+                    <div>international levels.</div>
                   </div>
                 </div>
                 {/*//** * End Second Circle */}
@@ -203,7 +205,7 @@ export default function HomePage() {
                 </div>
 
                 <div className='relative'>
-                  <NextImage
+                  <img
                     src='/images/image 99.png'
                     width={850}
                     height={450}
@@ -211,7 +213,7 @@ export default function HomePage() {
                   />
 
                   <div className='absolute top-0 right-0'>
-                    <NextImage
+                    <img
                       src='/images/float1.png'
                       width={300}
                       height={80}
@@ -220,7 +222,7 @@ export default function HomePage() {
                   </div>
 
                   <div className='absolute bottom-0 right-0 mr-6'>
-                    <NextImage
+                    <img
                       src='/images/float2.png'
                       width={300}
                       height={100}
@@ -229,7 +231,7 @@ export default function HomePage() {
                   </div>
 
                   <div className='absolute left-0 -ml-20 -mt-32'>
-                    <NextImage
+                    <img
                       src='/images/float3.png'
                       width={300}
                       height={100}
@@ -240,7 +242,7 @@ export default function HomePage() {
               </div>
 
               <div className='mt-36 grid grid-cols-3'>
-                <div className='flex flex-col gap-y-4 col-span-1'>
+                <div className='col-span-1 flex flex-col gap-y-4'>
                   <div className='text-3xl font-medium'>
                     Here’s Why You Should Enroll
                   </div>
@@ -258,21 +260,21 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className='col-span-2 -ml-80 -mt-14 relative'>
-                  {/* <NextImage src='/images/thread.png' alt='' /> */}
+                <div className='relative col-span-2 -ml-80 -mt-14'>
+                  {/* <img src='/images/thread.png' alt='' /> */}
                   <picture>
                     <source srcSet='/images/thread.png' type='image/png' />
-                    <img
-                      src='/images/thread.png'
-                      alt=''
-                      width='80%'
-                    />
+                    <img src='/images/thread.png' alt='' width='80%' />
                   </picture>
 
-                  <div className='flex flex-col gap-y-2 absolute left-[22%] -mt-6'>
+                  <div className='absolute left-[22%] -mt-6 flex flex-col gap-y-2'>
                     <div className='flex flex-row'>
-                      <div className='text-2xl font-semibold'>Level-Up Your Skills</div>
-                      <div className='text-[6.25rem] font-bold text-gray-300 -mt-4'>1</div>
+                      <div className='text-2xl font-semibold'>
+                        Level-Up Your Skills
+                      </div>
+                      <div className='-mt-4 text-[6.25rem] font-bold text-gray-300'>
+                        1
+                      </div>
                     </div>
 
                     <div className='text-lg'>
@@ -282,10 +284,14 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className='flex flex-col gap-y-2 absolute left-[59%] -mt-[11.4rem]'>
+                  <div className='absolute left-[59%] -mt-[11.4rem] flex flex-col gap-y-2'>
                     <div className='flex flex-row gap-x-2'>
-                      <div className='text-2xl font-semibold'>Build a Portfolio</div>
-                      <div className='text-[6.25rem] font-bold text-gray-300 -mt-4'>2</div>
+                      <div className='text-2xl font-semibold'>
+                        Build a Portfolio
+                      </div>
+                      <div className='-mt-4 text-[6.25rem] font-bold text-gray-300'>
+                        2
+                      </div>
                     </div>
 
                     <div className='text-lg'>
@@ -295,10 +301,14 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className='flex flex-col gap-y-2 absolute left-[76%] -mt-[26rem]'>
+                  <div className='absolute left-[76%] -mt-[26rem] flex flex-col gap-y-2'>
                     <div className='flex flex-row gap-x-2'>
-                      <div className='text-2xl font-semibold'>Get your Dream Job</div>
-                      <div className='text-[6.25rem] font-bold text-gray-300 -mt-4'>3</div>
+                      <div className='text-2xl font-semibold'>
+                        Get your Dream Job
+                      </div>
+                      <div className='-mt-4 text-[6.25rem] font-bold text-gray-300'>
+                        3
+                      </div>
                     </div>
 
                     <div className='text-lg'>
@@ -327,7 +337,7 @@ export default function HomePage() {
                     width='100%'
                   />
                 </picture>
-                {/* <NextImage className='w-screen h-1/6' src='/images/Black_Curve.png' width={0} height={0} alt='' /> */}
+                {/* <img className='w-screen h-1/6' src='/images/Black_Curve.png' width={0} height={0} alt='' /> */}
                 {/* <Black_Curve className='w-screen h-[800px]' /> */}
               </div>
 
@@ -359,10 +369,8 @@ export default function HomePage() {
 
                 <div className='flex flex-col space-y-48'>
                   <div>
-                    <div
-                      className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary bg-gradient-to-r from-gray-300 to-white'
-                    >
-                      <div className='flex w-full flex-row justify-between my-auto'>
+                    <div className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 text-2xl font-extrabold text-primary'>
+                      <div className='my-auto flex w-full flex-row justify-between'>
                         <div className='my-auto'>Security Principles</div>
                         <div className='my-auto'>
                           <Security_One className='w-8' />
@@ -372,10 +380,8 @@ export default function HomePage() {
                   </div>
 
                   <div className='-ml-80'>
-                    <div
-                      className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary bg-gradient-to-r from-gray-300 to-white'
-                    >
-                      <div className='flex w-full flex-row justify-between my-auto'>
+                    <div className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 text-2xl font-extrabold text-primary'>
+                      <div className='my-auto flex w-full flex-row justify-between'>
                         <div className='my-auto'>Types of Security</div>
                         <div className='my-auto'>
                           <Security_Two className='w-8' />
@@ -385,10 +391,8 @@ export default function HomePage() {
                   </div>
 
                   <div className='-ml-[40rem]'>
-                    <div
-                      className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white px-10 text-2xl font-extrabold text-primary bg-gradient-to-r from-gray-300 to-white'
-                    >
-                      <div className='flex w-full flex-row justify-between my-auto'>
+                    <div className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 text-2xl font-extrabold text-primary'>
+                      <div className='my-auto flex w-full flex-row justify-between'>
                         <div className='my-auto'>Authentication</div>
                         <div className='my-auto'>
                           <Security_Three className='w-8' />

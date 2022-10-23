@@ -9,7 +9,6 @@ import ButtonLink from '@/components/links/ButtonLink';
 import PrimaryLink from '@/components/links/PrimaryLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
-import NextImage from '@/components/NextImage';
 import Seo from '@/components/Seo';
 import Skeleton from '@/components/Skeleton';
 
@@ -296,8 +295,7 @@ export default function ComponentsPage() {
                 <p className={clsx('!mt-1 text-sm', textColor)}>
                   Next Image with default props and skeleton animation
                 </p>
-                <NextImage
-                  useSkeleton
+                <img
                   className='w-32 md:w-40'
                   src='/favicon/apple-icon-180x180.png'
                   width='180'

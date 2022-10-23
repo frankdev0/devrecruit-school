@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 // !STARTERCONF Change these default meta
 const defaultMeta = {
   title: 'DevRecruit Training School',
-  siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
-  description: 'DevRecruit Training Website',
+  siteName: 'DevRecruit Training School',
+  description: 'Learn | Empower | Be Global',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: '',
+  url: 'https://devrecruitschool.com',
   type: 'website',
   robots: 'follow, index',
   /**
@@ -72,7 +72,7 @@ export default function Seo(props: SeoProps) {
           <meta
             name='author'
             property='article:author'
-            content='Theodorus Clarence'
+            content='Devcenter Innovation'
           />
         </>
       )}

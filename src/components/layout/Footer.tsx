@@ -3,7 +3,6 @@ import { ImInstagram } from 'react-icons/im';
 import { RiFacebookCircleFill, RiMailFill } from 'react-icons/ri';
 
 import UnstyledLink from '@/components/links/UnstyledLink';
-import NextImage from '@/components/NextImage';
 
 import Ellipse from '~/svg/Ellipse.svg';
 
@@ -14,8 +13,7 @@ export default function Footer() {
         <div className='flex flex-col items-center space-y-12'>
           <div>
             <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
-              <NextImage
-                useSkeleton
+              <img
                 className='z-10 -mb-10 w-36'
                 src='/images/logo.png'
                 width='200'

@@ -2,13 +2,12 @@ import * as React from 'react';
 
 import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
-import NextImage from '@/components/NextImage';
 
 const links = [
-  { href: '/', label: 'Home', },
-  { href: '/about', label: 'About', },
-  { href: '/courses', label: 'Courses', },
-  { href: '/contact', label: 'Contact', },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/courses', label: 'Courses' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 interface Props {
@@ -20,8 +19,7 @@ export default function Header({ isActive }: Props) {
     <header className='top-0 z-50'>
       <div className='layout flex h-14 items-center justify-between pt-10 text-xl font-semibold'>
         <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
-          <NextImage
-            useSkeleton
+          <img
             className='w-32 md:w-40'
             src='/images/logo.png'
             width='185'
@@ -31,10 +29,16 @@ export default function Header({ isActive }: Props) {
         </UnstyledLink>
 
         <nav>
-          <ul className='flex items-center justify-between space-x-20 ml-16'>
+          <ul className='ml-16 flex items-center justify-between space-x-20'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
-                <UnstyledLink href={href} className={`hover:text-primary-600 ${isActive?.includes(label) && 'text-primary-600 hover:text-white'}`}>
+                <UnstyledLink
+                  href={href}
+                  className={`hover:text-primary-600 ${
+                    isActive?.includes(label) &&
+                    'text-primary-600 hover:text-white'
+                  }`}
+                >
                   {label}
                 </UnstyledLink>
               </li>
@@ -43,14 +47,21 @@ export default function Header({ isActive }: Props) {
         </nav>
 
         <div className='flex flex-row gap-x-6'>
-          <div className={`my-auto hover:text-primary-600 ${isActive?.includes('Login') && 'text-gray-600'}`}>
+          <div
+            className={`my-auto hover:text-primary-600 ${
+              isActive?.includes('Login') && 'text-gray-600'
+            }`}
+          >
             <UnstyledLink href='/login'>Log In</UnstyledLink>
           </div>
 
           <div className='my-auto h-8 w-px bg-black'></div>
 
           <div>
-            <ButtonLink href='/register' className='rounded-3xl font-light text-black'>
+            <ButtonLink
+              href='/register'
+              className='rounded-3xl font-light text-black'
+            >
               Enroll Now
             </ButtonLink>
           </div>
@@ -65,8 +76,7 @@ export function HeaderDark({ isActive }: Props) {
     <header className='top-0 z-50'>
       <div className='layout flex h-14 items-center justify-between pt-10 text-xl font-semibold'>
         <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
-          <NextImage
-            useSkeleton
+          <img
             className='w-32 md:w-40'
             src='/images/logo.png'
             width='185'
@@ -76,10 +86,15 @@ export function HeaderDark({ isActive }: Props) {
         </UnstyledLink>
 
         <nav>
-          <ul className='flex items-center justify-between space-x-20 ml-16'>
+          <ul className='ml-16 flex items-center justify-between space-x-20'>
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
-                <UnstyledLink href={href} className={`text-white hover:text-primary-600 ${isActive?.includes(label) && 'text-primary-600'}`}>
+                <UnstyledLink
+                  href={href}
+                  className={`text-white hover:text-primary-600 ${
+                    isActive?.includes(label) && 'text-primary-600'
+                  }`}
+                >
                   {label}
                 </UnstyledLink>
               </li>
@@ -88,14 +103,17 @@ export function HeaderDark({ isActive }: Props) {
         </nav>
 
         <div className='flex flex-row gap-x-6'>
-          <div className="my-auto hover:text-primary-600 text-gray-500">
+          <div className='my-auto text-gray-500 hover:text-primary-600'>
             <UnstyledLink href='/login'>Log In</UnstyledLink>
           </div>
 
           <div className='my-auto h-8 w-px bg-black'></div>
 
           <div>
-            <ButtonLink href='/register' className='rounded-3xl font-light text-black'>
+            <ButtonLink
+              href='/register'
+              className='rounded-3xl font-light text-black'
+            >
               Enroll Now
             </ButtonLink>
           </div>

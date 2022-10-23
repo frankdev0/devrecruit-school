@@ -5,6 +5,11 @@ module.exports = {
   },
 
   reactStrictMode: true,
+  unoptimized: true,
+  images: {
+    loader: 'imgix',
+    path: '/',
+  },
 
   // Uncoment to add domain whitelist
   // images: {

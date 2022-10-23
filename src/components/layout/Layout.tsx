@@ -11,15 +11,22 @@ interface Props {
   isActive?: string[] | undefined;
 }
 
-export default function Layout({ children, isNav = true, isFooter = true, isActive, isDark }: Props) {
+export default function Layout({
+  children,
+  isNav = true,
+  isFooter = true,
+  isActive,
+  isDark,
+}: Props) {
   // Put Header or Footer Here
   return (
     <div className='flex min-h-screen w-screen flex-col'>
-      {isNav && (
-        !isDark ?
-          <Header isActive={isActive} /> :
+      {isNav &&
+        (!isDark ? (
+          <Header isActive={isActive} />
+        ) : (
           <HeaderDark isActive={isActive} />
-      )}
+        ))}
       <div className='mb-60'>{children}</div>
       {isFooter && <Footer />}
     </div>
