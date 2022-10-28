@@ -28,7 +28,7 @@ export default function FaqCard({ id, title, body, isOpen }: Props) {
       </div>
 
       <div className='mr-10 flex flex-col gap-y-4'>
-        <div className='text-2xl'>{title}</div>
+        <div className='text-2xl font-header'>{title}</div>
         {check && <div className='text-gray-500'>{body}</div>}
       </div>
 

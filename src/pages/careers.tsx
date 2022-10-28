@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
@@ -56,7 +57,7 @@ export default function Careers() {
 
               <div className='absolute inset-x-0 top-0 flex w-full flex-row justify-center text-center text-white'>
                 <div className='my-auto mt-10 flex flex-col justify-center gap-y-10 px-20'>
-                  <div className='flex flex-col gap-y-4 text-5xl font-semibold text-black'>
+                  <div className='flex flex-col font-header gap-y-4 text-5xl font-semibold text-black'>
                     <div>We Make Your</div>
                     <div>Dream A Reality</div>
                   </div>
@@ -77,7 +78,7 @@ export default function Careers() {
             {/* //#region  //*============== Partnership */}
             <div className='layout my-20 flex flex-row justify-between'>
               <div className='mt-16 flex flex-col gap-y-4'>
-                <div className='text-3xl font-semibold'>
+                <div className='text-3xl font-semibold font-header'>
                   <div>In Partnership With DevRecruit</div>
                 </div>
 
@@ -128,7 +129,7 @@ export default function Careers() {
                 </div>
 
                 <div className='my-auto flex flex-col gap-y-2 px-20 text-black'>
-                  <div className='text-3xl font-semibold'>Open Positions</div>
+                  <div className='text-3xl font-semibold font-header'>Open Positions</div>
 
                   <div className='flex flex-col text-2xl'>
                     <div>Job vacancies with an A-list organization with a</div>

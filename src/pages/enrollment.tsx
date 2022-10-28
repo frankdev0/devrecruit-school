@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
@@ -29,7 +30,7 @@ export default function Enrollment() {
 
               <div className='absolute inset-x-0 top-0 flex w-full translate-y-1/2 flex-row justify-center text-center text-white'>
                 <div className='my-auto mt-10 flex flex-col justify-center gap-y-10 px-20'>
-                  <div className='flex flex-col gap-y-4 text-5xl font-semibold text-primary-500'>
+                  <div className='flex flex-col font-header gap-y-4 text-5xl font-semibold text-primary-500'>
                     <div>Make an Impact in the</div>
                     <div>Tech Eco-system</div>
                   </div>
@@ -55,7 +56,7 @@ export default function Enrollment() {
 
             {/* //#region  //*============== Specialised Courses */}
             <div className='layout my-20 flex flex-col gap-y-14'>
-              <div className='text-3xl font-semibold'>
+              <div className='text-3xl font-semibold font-header'>
                 Explore Our Specialized Courses
               </div>
 
@@ -127,7 +128,7 @@ export default function Enrollment() {
 
             {/* //#region  //*============== Course Module */}
             <div className='layout my-6 flex flex-col gap-y-6'>
-              <div className='text-3xl font-semibold'>
+              <div className='text-3xl font-semibold font-header'>
                 <div>Obtain a physical and electronic certification that</div>
                 <div>can be share on social media, and among your</div>
                 <div>networks to get your foot in the tech space.</div>
@@ -170,7 +171,7 @@ export default function Enrollment() {
             {/* //#region  //*============== Admission Process */}
             <div className='layout mt-20 flex flex-row justify-between px-20'>
               <div className='my-auto mt-14 flex flex-col gap-y-14'>
-                <div className='text-3xl font-medium'>
+                <div className='text-3xl font-medium font-header'>
                   How the Admission Process Works
                 </div>
 

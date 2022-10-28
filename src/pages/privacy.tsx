@@ -74,7 +74,7 @@ export default function Privacy() {
       <Seo />
 
       <main className='my-20'>
-        <div className='mt-10 pl-20 text-[3.125rem] font-semibold'>
+        <div className='mt-10 pl-20 text-[3.125rem] font-semibold font-header'>
           DevRecruit Training Privacy Policy
         </div>
 

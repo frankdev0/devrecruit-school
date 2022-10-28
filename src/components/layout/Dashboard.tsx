@@ -6,11 +6,11 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import Nav from '@/components/Nav';
-
 import { userStore } from '@/store';
 
 import { logOut } from '@/modules';
+
+import Nav from './Nav';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -85,9 +85,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </Link>
 
-              <Link href='/user/chat'>
+              <Link href='/users/chat'>
                 <div className={clsx(
-                  router.asPath === '/user/chat' ? 'bg-gray-100 text-[#447175]' : 'text-white transition-colors duration-300 hover:bg-white hover:font-semibold hover:text-[#447175]',
+                  router.asPath === '/users/chat' ? 'bg-gray-100 text-[#447175]' : 'text-white transition-colors duration-300 hover:bg-white hover:font-semibold hover:text-[#447175]',
                   'mt-5 flex transform items-center rounded-tr-[0.625rem] px-4 py-2 cursor-pointer'
                 )}>
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Document, {
   DocumentContext,
   Head,
@@ -27,6 +28,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
         </body>
       </Html>
     );

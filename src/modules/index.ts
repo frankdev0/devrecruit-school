@@ -12,6 +12,9 @@ import {
   where,
 } from 'firebase/firestore';
 import { db } from 'init_firebase';
+import { MailtrapClient } from 'mailtrap';
+
+import { MAIL_ENDPOINT, MAIL_TOKEN } from '@/constant/env';
 
 const auth = getAuth();
 
@@ -94,13 +97,67 @@ export const sendMessage = async (id: string, text: string) => {
   });
 };
 
-
-export const logOut = async() => {
+export const logOut = async () => {
   let status;
   await signOut(auth).then(() => {
     // Sign-out successful.
     status = 'Success';
-  })
+  });
 
   return status;
-}
+};
+
+export const sendTransactionalMail = async (
+  recipient: string,
+  amount: number,
+  name: string,
+  ref: string,
+) => {
+  const client = new MailtrapClient({
+    endpoint: MAIL_ENDPOINT,
+    token: MAIL_TOKEN,
+  });
+
+  const sender = {
+    email: 'training@devrecruitschool.com',
+    name: 'Devrecruit Training',
+  };
+  const recipients = [
+    {
+      email: recipient,
+    },
+  ];
+
+  client
+    .send({
+      from: sender,
+      to: recipients,
+      subject: `Payment Confirmation & Registration`,
+      text: `
+      Dear ${name}
+      
+      Your Registration Payment for Cyber security Introductory Course has been received and confirmed for processing.
+      
+      Kindly find below the link to complete your Registration on the Learning Management System.
+      
+       *Link*____________
+      
+
+       Payment Reference: ${ref}
+
+      Regards
+      
+      (*Community Manager*)
+      DevRecruit Training School.
+      `,
+      category: 'Payment Confirmation',
+    })
+    .then((response) => {
+      console.log(response)
+      return response
+    })
+    .catch((err) => {
+      console.error(err)
+      return err;
+    });
+};

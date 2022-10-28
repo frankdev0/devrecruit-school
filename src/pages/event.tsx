@@ -17,7 +17,7 @@ export default function Event() {
             {/* //#region  //*============== Transform */}
             <div className='layout my-20 flex flex-col'>
               <div className='flex flex-col justify-between gap-y-6'>
-                {Array(3)
+                {Array(1)
                   .fill(5)
                   .map((i) => (
                     <div
@@ -28,12 +28,12 @@ export default function Event() {
                       <div className='absolute inset-x-0 top-[23.3%] bottom-[33.3%] flex w-full flex-row justify-between px-10 text-white'>
                         <div className='flex flex-row gap-x-10'>
                           <div className='flex flex-row gap-x-2 text-gray-400'>
-                            <div className='text-7xl'>31</div>
-                            <div className='translate-y-1/3 text-lg'>Aug</div>
+                            <div className='text-7xl'>21</div>
+                            <div className='translate-y-1/3 text-lg'>Dec</div>
                           </div>
 
                           <div className='flex w-3/4 flex-col gap-y-4'>
-                            <div className='text-3xl font-semibold'>
+                            <div className='text-3xl font-semibold font-header'>
                               Cybersecurity Live Class
                             </div>
                             <div>

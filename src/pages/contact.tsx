@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { ImMail4 } from 'react-icons/im';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-import Message from '~/svg/message.svg';
 import Phone from '~/svg/phone.svg';
 
 export default function Contact() {
@@ -31,7 +31,7 @@ export default function Contact() {
 
               <div className='absolute inset-x-0 top-0 my-20 flex w-full flex-col gap-y-28 text-white'>
                 <div className='my-auto flex flex-col gap-y-4 px-20'>
-                  <div className='flex flex-col gap-y-4 text-5xl font-semibold'>
+                  <div className='flex flex-col font-header gap-y-4 text-5xl font-semibold'>
                     <div>Get In Touch</div>
                   </div>
 
@@ -43,11 +43,15 @@ export default function Contact() {
 
                 <div className='mx-auto flex w-screen flex-row justify-around'>
                   <div className='flex h-[26.25rem] w-[36.875rem] flex-col justify-center gap-y-10 overflow-hidden rounded-[1.875rem] bg-white text-center text-black shadow-xl'>
-                    <div className='text-3xl font-semibold'>
+                    <div className='text-3xl font-semibold font-header'>
                       Talk with our Program Manager
                     </div>
-                    <div>
-                      <Phone className='mx-auto h-10 w-10' />
+                    <div className='flex flex-row gap-x-[1.875rem] mx-auto'>
+                      <div className='my-auto'>
+                        <Phone className='mx-auto h-10 w-10 fill-current' />
+                      </div>
+
+                      <div className='my-auto font-bold text-xl'>+234 816 2159 419</div>
                     </div>
                     <div>
                       <div>Send an email to the programme</div>
@@ -56,11 +60,15 @@ export default function Contact() {
                   </div>
 
                   <div className='flex h-[26.25rem] w-[36.875rem] flex-col justify-center gap-y-10 overflow-hidden rounded-[1.875rem] bg-white text-center text-black shadow-xl'>
-                    <div className='text-3xl font-semibold'>
+                    <div className='text-3xl font-semibold font-header'>
                       Contact Customer Service
                     </div>
-                    <div>
-                      <Message className='mx-auto h-10 w-10' />
+                    <div className='flex flex-row gap-x-[1.875rem] mx-auto'>
+                      <div className='my-auto'>
+                        <ImMail4 className='mx-auto h-14 w-14 text-black' />
+                      </div>
+
+                      <div className='my-auto font-bold text-xl'>training@devrecruitschool.com</div>
                     </div>
                     <div>
                       <div>Speak with our help center for</div>
@@ -75,7 +83,7 @@ export default function Contact() {
             {/* //#region  //*============== Course Outcome */}
             <div className='layout mb-20'>
               <div className='flex w-full flex-col gap-y-10 rounded-[1.25rem] bg-black p-20 text-white'>
-                <div className='text-3xl font-semibold'>Send a message</div>
+                <div className='text-3xl font-semibold font-header'>Send a message</div>
 
                 <div className='grid w-full grid-cols-2 gap-10'>
                   <div className='tex-2xl flex w-full flex-col'>

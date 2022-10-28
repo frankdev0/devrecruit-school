@@ -25,25 +25,38 @@ export default function HomePage() {
         <section className='bg-white'>
           <div className='flex min-h-screen flex-col'>
             {/* //#region  //*============== Home Banner */}
-            <div className='layout flex flex-row justify-center space-x-40'>
-              <div>
+            <div className='layout flex flex-row justify-center lg:space-x-40'>
+              <div className='hidden lg:flex'>
                 <img src='/images/apply.png' alt='' width={480} height={300} />
               </div>
 
               <div className='flex flex-col'>
-                <div className='text-5xl leading-[3.7rem]'>
-                  <div>Kick-start Your</div>
-                  <div>Career in IT</div>
+                <div className='text-5xl lg:leading-[3.7rem] font-header'>
+                  <div className='hidden lg:block'>
+                    <div>Kick-start Your</div>
+                    <div>Career in IT</div>
+                  </div>
+
+                  <div className='flex flex-row text-4xl lg:hidden'>
+                    <div className='flex flex-col'>
+                      <div>Kick-start Your</div>
+                      <div>Career in IT</div>
+                    </div>
+
+                    <div className='lg:hidden -mr-4'>
+                      <img src='/images/ell_split.png' alt='' width={150} height={200} />
+                    </div>
+                  </div>
                 </div>
-                <div className='flex flex-row space-x-6 text-2xl'>
+                <div className='flex flex-row space-x-6 lg:text-2xl -mt-10 lg:mt-0'>
                   <div>
                     <div>Join the DevRecruit school to build</div>
                     <div>in-demand IT skills</div>
                   </div>
 
-                  <Ellipse_2 className='h-20 w-20 -translate-y-6' />
+                  <Ellipse_2 className='hidden lg:flex h-20 w-20 -translate-y-6' />
                 </div>
-                <div>
+                <div className='mt-4 lg:mt:0'>
                   <ButtonLink
                     href='/register'
                     className='rounded-3xl font-light text-black'
@@ -56,8 +69,8 @@ export default function HomePage() {
             {/* //#endregion  //*============== Home Banner */}
 
             {/* //#region  //*============== Rewarding Career */}
-            <div className='layout my-24 flex flex-col items-center gap-y-4'>
-              <div className='text-3xl font-semibold'>
+            <div className='layout my-[3.75rem] lg:my-24 flex flex-col items-center gap-y-4'>
+              <div className='text-center lg:text-left text-3xl font-semibold font-header'>
                 Do You Want to Start a Rewarding Career in Cybersecurity?
               </div>
 
@@ -68,25 +81,14 @@ export default function HomePage() {
                 <div>path to becoming a cybersecurity expert.</div>
               </div>
 
-              {/* <img
-                src='/images/Rectangle 83.png'
-                width={800}
-                height={400}
-                alt='Video'
-                className='mt-4'
-              /> */}
-
               <div className='mt-4 flex w-full justify-center'>
                 <iframe
-                  // width="853"
-                  // height="480"
                   src={`https://www.youtube.com/embed/${'2C0lfBBUfFU'}?rel=0?playlist=2C0lfBBUfFU&version=3&autoplay=1&controls=0&&showinfo=0&loop=1`}
                   frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                   allowFullScreen
                   title='Embedded youtube'
-                  className='h-[23.5rem] w-[55.379rem] rounded-lg'
-                  // className='rounded-lg w-[40.9rem] h-[23rem]'
+                  className='h-[16.0625rem] w-[23.8125rem] lg:h-[23.5rem] lg:w-[55.379rem] rounded-lg'
                 />
 
                 <div className='absolute right-0 mr-72 mt-40'>
@@ -97,25 +99,28 @@ export default function HomePage() {
             {/* //#endregion  //*============== Rewarding Career */}
 
             {/* //#region  //*============== Vision, Mission and Goals */}
+            {/* Desktop */}
             <div
-              className='relative mb-24 flex h-[43.63rem] w-screen overflow-hidden'
+              className='hidden relative mb-24 lg:flex h-[43.63rem] w-screen overflow-hidden'
               id='vision'
             >
               <div className='my-10 flex flex-col space-y-24 px-10'>
                 {/*//** * First Circle */}
-                <div className='flex flex-row'>
-                  <div className='relative flex flex-row '>
+                <div className='flex lg:flex-row flex-col'>
+                  <div className='relative flex flex-row'>
                     <div className='absolute z-10'>
-                      <White_Ellipse className='h-44 w-44' />
+                      <White_Ellipse className='h-[8.125rem] w-[8.125rem] lg:h-44 lg:w-44' />
                     </div>
 
-                    <div className='z-20 translate-x-1/2 translate-y-1/3 text-center text-3xl font-semibold leading-[2.813rem]'>
+                    <div className='z-20 font-header translate-x-1/2 translate-y-1/3 text-center text-3xl font-semibold leading-[2.813rem]'>
                       <div>Our</div>
                       <div>Vision</div>
                     </div>
                   </div>
 
-                  <div className='z-20 my-auto mt-20 ml-28 mr-6 h-px w-80 bg-white'></div>
+                  <div className='hidden lg:flex z-20 my-auto mt-20 ml-28 mr-6 h-px w-80 bg-white'></div>
+
+                  <div className='lg:hidden z-20 my-auto text-center h-[4.25rem] w-px bg-white'></div>
 
                   <div className='z-20 mt-10 text-xl font-semibold text-white'>
                     <div>We see a world in which anyone, anywhere</div>
@@ -128,13 +133,13 @@ export default function HomePage() {
                 {/*//** * End First Circle */}
 
                 {/*//** * Second Circle */}
-                <div className='ml-40 flex flex-row'>
-                  <div className='relative flex flex-row '>
+                <div className='lg:ml-40 flex flex-row'>
+                  <div className='relative flex flex-col gap-y-10 lg:flex-row '>
                     <div className='absolute z-10'>
-                      <Outline_Ellipse className='h-44 w-44' />
+                      <Outline_Ellipse className='h-[8.125rem] w-[8.125rem] lg:h-44 lg:w-44' />
                     </div>
 
-                    <div className='z-20 translate-x-1/3 translate-y-1/3 text-center text-3xl font-semibold leading-[2.813rem] text-white'>
+                    <div className='z-20 font-header translate-x-1/3 translate-y-1/3 text-center text-3xl font-semibold leading-[2.813rem] text-white'>
                       <div>Our</div>
                       <div>Mission</div>
                     </div>
@@ -151,13 +156,13 @@ export default function HomePage() {
                 {/*//** * End Second Circle */}
 
                 {/*//** * Third Circle */}
-                <div className='ml-80 flex flex-row'>
+                <div className='lg:ml-80 flex flex-row'>
                   <div className='relative flex flex-row '>
                     <div className='absolute z-10'>
-                      <Outline_Ellipse className='h-44 w-44' />
+                      <Outline_Ellipse className='h-[8.125rem] w-[8.125rem] lg:h-44 lg:w-44' />
                     </div>
 
-                    <div className='z-20 translate-x-[60%] translate-y-1/3 text-center text-3xl font-semibold leading-[2.813rem] text-white'>
+                    <div className='z-20 font-header translate-x-[60%] translate-y-1/3 text-center text-3xl font-semibold leading-[2.813rem] text-white'>
                       <div>Our</div>
                       <div>Goals</div>
                     </div>
@@ -181,20 +186,104 @@ export default function HomePage() {
                 {/*//** * End Third Circle */}
               </div>
             </div>
+
+            {/* Mobile */}
+            <div
+              className='lg:hidden relative lg:mb-24 flex h-[60rem] w-screen overflow-hidden'
+              id='vision_2'
+            >
+              <div className='my-10 flex flex-col gap-y-5 px-10'>
+                {/*//** * First Circle */}
+                <div className='flex flex-col items-center'>
+                  <div className='relative flex flex-row -ml-14 mb-16'>
+                    <div className='absolute z-10'>
+                      <White_Ellipse className='h-[8.125rem] w-[8.125rem]' />
+                    </div>
+
+                    <div className='z-20 font-header translate-x-1/2 translate-y-1/2 text-center text-2xl font-semibold leading-[2rem]'>
+                      <div>Our</div>
+                      <div>Vision</div>
+                    </div>
+                  </div>
+
+                  <div className='z-20 mt-5 text-center font-semibold text-white'>
+                    <div>We see a world in which anyone, anywhere</div>
+                    <div>would obtain the necessary training to</div>
+                    <div>
+                      begin a career in the IT industry.
+                    </div>
+                  </div>
+
+                  <div className='lg:hidden mt-5 z-20 my-auto text-center h-[4.25rem] w-px bg-white'></div>
+                </div>
+                {/*//** * End First Circle */}
+
+                {/*//** * Second Circle */}
+                <div className='lg:ml-40 flex flex-col items-center gap-y-5'>
+                  <div className='relative flex flex-col gap-y-10 lg:flex-row -ml-14 mb-10'>
+                    <div className='absolute z-10'>
+                      <Outline_Ellipse className='h-[8.125rem] w-[8.125rem] lg:h-44 lg:w-44' />
+                    </div>
+
+                    <div className='z-20 font-header translate-x-1/2 -ml-4 translate-y-1/2 text-center text-2xl font-semibold leading-[2rem] text-white'>
+                      <div>Our</div>
+                      <div>Mission</div>
+                    </div>
+                  </div>
+
+                  <div className='z-20 mt-5 text-center font-semibold text-white'>
+                    <div>To ensure that the IT sector has capable</div>
+                    <div>technical capacities that can compete on</div>
+                    <div>international levels.</div>
+                  </div>
+
+                  <div className='z-20 h-[4.25rem] w-px bg-white'></div>
+                </div>
+                {/*//** * End Second Circle */}
+
+                {/*//** * Third Circle */}
+                <div className='flex flex-col items-center gap-y-16'>
+                  <div className='relative flex flex-row -ml-14'>
+                    <div className='absolute z-10'>
+                      <Outline_Ellipse className='h-[8.125rem] w-[8.125rem] lg:h-44 lg:w-44' />
+                    </div>
+
+                    <div className='z-20 font-header translate-x-1/2 translate-y-1/2 text-center text-2xl font-semibold leading-[2rem] text-white'>
+                      <div>Our</div>
+                      <div>Goals</div>
+                    </div>
+                  </div>
+
+                  <div className='z-20 mt-5 text-center font-semibold text-white'>
+                    <div>
+                      To provide world-class training for technophiles,
+                      establish
+                    </div>
+                    <div>
+                      and grow the IT specialist community, and connect talents
+                    </div>
+                    <div>
+                      with the best job opportunities to launch their careers.
+                    </div>
+                  </div>
+                </div>
+                {/*//** * End Third Circle */}
+              </div>
+            </div>
             {/* //#endregion  //*============== Vision, Mission and Goals */}
 
             {/* //#region  //*============== Dreams */}
-            <div className='layout mb-20 flex flex-col'>
+            <div className='lg:layout mt-12 lg:mt-0 mb-20 flex flex-col'>
               <div className='flex flex-row justify-between'>
                 <div className='flex flex-col gap-y-4'>
-                  <div className='text-3xl font-medium'>
+                  <div className='text-2xl text-center lg:text-left lg:text-3xl font-medium font-header'>
                     Get The Job of Your Dreams
                   </div>
-                  <div className='text-2xl'>
+                  <div className='lg:text-2xl px-10 lg:px-0'>
                     <div>Enroll to begin taking live sessions and</div>
                     <div>tutorials on Cybersecurity and more</div>
                   </div>
-                  <div>
+                  <div className='px-10 lg:px-0'>
                     <ButtonLink
                       href='/register'
                       className='rounded-3xl font-light text-black'
@@ -202,9 +291,18 @@ export default function HomePage() {
                       Enroll Now
                     </ButtonLink>
                   </div>
+
+                  <div className='lg:hidden flex flex-row'>
+                  <img
+                    src='/images/image 99.png'
+                    width={950}
+                    height={550}
+                    alt=''
+                  />
+                </div>
                 </div>
 
-                <div className='relative'>
+                <div className='hidden lg:block relative'>
                   <img
                     src='/images/image 99.png'
                     width={850}
@@ -239,11 +337,12 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
+
               </div>
 
-              <div className='mt-36 grid grid-cols-3'>
+              <div className='hidden mt-36 lg:grid grid-cols-3'>
                 <div className='col-span-1 flex flex-col gap-y-4'>
-                  <div className='text-3xl font-medium'>
+                  <div className='text-3xl font-medium font-header'>
                     Here’s Why You Should Enroll
                   </div>
                   <div className='text-2xl'>
@@ -269,7 +368,7 @@ export default function HomePage() {
 
                   <div className='absolute left-[22%] -mt-6 flex flex-col gap-y-2'>
                     <div className='flex flex-row'>
-                      <div className='text-2xl font-semibold'>
+                      <div className='text-2xl font-semibold font-header'>
                         Level-Up Your Skills
                       </div>
                       <div className='-mt-4 text-[6.25rem] font-bold text-gray-300'>
@@ -286,7 +385,7 @@ export default function HomePage() {
 
                   <div className='absolute left-[59%] -mt-[11.4rem] flex flex-col gap-y-2'>
                     <div className='flex flex-row gap-x-2'>
-                      <div className='text-2xl font-semibold'>
+                      <div className='text-2xl font-semibold font-header'>
                         Build a Portfolio
                       </div>
                       <div className='-mt-4 text-[6.25rem] font-bold text-gray-300'>
@@ -303,7 +402,7 @@ export default function HomePage() {
 
                   <div className='absolute left-[76%] -mt-[26rem] flex flex-col gap-y-2'>
                     <div className='flex flex-row gap-x-2'>
-                      <div className='text-2xl font-semibold'>
+                      <div className='text-2xl font-semibold font-header'>
                         Get your Dream Job
                       </div>
                       <div className='-mt-4 text-[6.25rem] font-bold text-gray-300'>
@@ -334,6 +433,7 @@ export default function HomePage() {
                   <img
                     src='/images/Black_Curve.png'
                     alt='Landscape picture'
+                    className='h-[28.75rem] lg:h-auto'
                     width='100%'
                   />
                 </picture>
@@ -342,10 +442,10 @@ export default function HomePage() {
               </div>
 
               <div className='absolute inset-x-0 top-0 my-16 flex w-full flex-row justify-between px-20 text-white'>
-                <div className='flex w-1/2 flex-col gap-y-8'>
-                  <div className='text-lg'>OUR COURSES</div>
-                  <div className='-mt-8 text-3xl'>Open For Enrollment</div>
-                  <div className='text-[2.5rem] font-semibold'>
+                <div className='hidden lg:flex w-1/2 flex-col gap-y-8'>
+                  <div className='text-lg font-header'>OUR COURSES</div>
+                  <div className='-mt-8 text-3xl font-header'>Open For Enrollment</div>
+                  <div className='text-[2.5rem] font-semibold font-header'>
                     Cybersecurity
                   </div>
                   <div className='text-2xl'>
@@ -367,9 +467,9 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className='flex flex-col space-y-48'>
+                <div className='flex flex-col space-y-10 lg:space-y-48'>
                   <div>
-                    <div className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 text-2xl font-extrabold text-primary'>
+                    <div className='flex lg:h-20 w-[15.125rem] h-[3.3125rem] lg:w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 lg:text-2xl font-extrabold text-primary'>
                       <div className='my-auto flex w-full flex-row justify-between'>
                         <div className='my-auto'>Security Principles</div>
                         <div className='my-auto'>
@@ -379,8 +479,8 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className='-ml-80'>
-                    <div className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 text-2xl font-extrabold text-primary'>
+                  <div className='-ml-20 lg:-ml-80'>
+                    <div className='flex lg:h-20 w-[15.125rem] h-[3.3125rem] lg:w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 lg:text-2xl font-extrabold text-primary'>
                       <div className='my-auto flex w-full flex-row justify-between'>
                         <div className='my-auto'>Types of Security</div>
                         <div className='my-auto'>
@@ -390,8 +490,8 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className='-ml-[40rem]'>
-                    <div className='flex h-20 w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 text-2xl font-extrabold text-primary'>
+                  <div className='lg:-ml-[40rem]'>
+                    <div className='flex lg:h-20 w-[15.125rem] h-[3.3125rem] lg:w-[22.2rem] rounded-[1.9rem] bg-white bg-gradient-to-r from-gray-300 to-white px-10 lg:text-2xl font-extrabold text-primary'>
                       <div className='my-auto flex w-full flex-row justify-between'>
                         <div className='my-auto'>Authentication</div>
                         <div className='my-auto'>
@@ -408,14 +508,14 @@ export default function HomePage() {
             {/* //#region  //*============== FAQ */}
             <div className='layout my-6 flex flex-col'>
               <div className='flex flex-row justify-between'>
-                <div className='text-lg'>Frequently Asked Questions</div>
+                <div className='text-lg font-header'>Frequently Asked Questions</div>
                 <div className='-ml-60'>
                   <Green_Ellipse_Thin className='-ml-[34rem] h-20 w-20' />
                 </div>
               </div>
 
-              <div className='flex flex-row justify-between'>
-                <div className='text-3xl font-light'>
+              <div className='flex flex-col lg:flex-row justify-between'>
+                <div className='text-2xl lg:text-3xl font-light font-header'>
                   Not Sure Where To Begin?
                 </div>
                 <div>
@@ -428,13 +528,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className='mt-2 text-3xl font-medium'>
+              <div className='mt-6 lg:mt-2 text-2xl lg:text-3xl font-medium font-header'>
                 Check Out Our Stories and Latest News
               </div>
 
-              <div className='mt-14 flex flex-row'>
-                <div className='mr-6 flex flex-col gap-y-2'>
-                  <div className='text-2xl font-semibold'>
+              <div className='mt-14 flex flex-col gap-y-10 lg:flex-row'>
+                <div className='lg:mr-6 flex flex-col gap-y-2'>
+                  <div className='text-2xl font-semibold font-header'>
                     What will the training be like?
                   </div>
                   <div className='text-lg'>
@@ -444,8 +544,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className='flex flex-col gap-y-2 border-l border-r border-l-gray-400 border-r-gray-400 px-10'>
-                  <div className='text-2xl font-semibold'>
+                <div className='flex flex-col gap-y-2 lg:border-l lg:border-r lg:border-l-gray-400 lg:border-r-gray-400 lg:px-10'>
+                  <div className='text-2xl font-semibold font-header'>
                     Is the training free?
                   </div>
                   <div className='text-lg'>
@@ -454,8 +554,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className='ml-6 flex flex-col gap-y-2'>
-                  <div className='text-2xl font-semibold'>
+                <div className='lg:ml-6 flex flex-col gap-y-2'>
+                  <div className='text-2xl font-semibold font-header'>
                     Will the training be videotaped?
                   </div>
                   <div className='text-lg'>

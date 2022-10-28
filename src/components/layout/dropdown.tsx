@@ -12,7 +12,7 @@ import { userStore } from '@/store';
 import { logOut } from '@/modules';
 
 export default function MenuDropdown() {
-  const { remove_user } = userStore();
+  const { user_data, remove_user } = userStore();
 
   const handleLogout = async () => {
     const response = await logOut();
@@ -32,8 +32,8 @@ export default function MenuDropdown() {
             <div className='my-auto'>
               <img src='/images/user.png' alt='' className='w-10 h-10' />
             </div>
-            <div className='my-auto text-[#447175]'>
-              Admin
+            <div className='my-auto text-[#447175] truncate'>
+              {user_data?.full_name ? user_data?.full_name.split(' ')[0] : 'Username'}
             </div>
             <ChevronDownIcon
               className="ml-2 -mr-1 h-5 w-5 text-[#447175] hover:text-[#579ca2] my-auto"
@@ -53,7 +53,7 @@ export default function MenuDropdown() {
           <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
               <Menu.Item>
-                <Link href='/profile'>
+                <Link href='/users/dashboard'>
                   <button
                     className={`${'hover:bg-primary text-black hover:text-gray-900'} group flex w-full items-center rounded-md px-2 py-2 text-sm gap-x-6`}
                   >
@@ -67,7 +67,7 @@ export default function MenuDropdown() {
                 </Link>
               </Menu.Item>
               <Menu.Item>
-                <Link href='/settings'>
+                <Link href='/users/settings'>
                   <button
                     className={`${'hover:bg-primary text-black hover:text-gray-900'} group flex w-full items-center rounded-md px-2 py-2 text-sm gap-x-6`}
                   >

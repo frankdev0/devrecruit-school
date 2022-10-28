@@ -13,7 +13,7 @@ export default function PrivacyCard({ id, title, body, bullets }: Props) {
       </div>
 
       <div className='mr-10 flex flex-col gap-y-4'>
-        <div className='text-2xl'>{title}</div>
+        <div className='text-2xl font-header'>{title}</div>
         <div className='text-gray-500'>{body}</div>
 
         {bullets && (

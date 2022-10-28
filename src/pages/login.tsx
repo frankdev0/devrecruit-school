@@ -7,7 +7,9 @@ import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 
 import Button from '@/components/buttons/Button';
+import Header from '@/components/layout/Header';
 import ArrowLink from '@/components/links/ArrowLink';
+import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
@@ -15,7 +17,6 @@ import { userStore } from '@/store';
 
 import Apple from '~/svg/apple.svg';
 import Google from '~/svg/google.svg';
-import UnderlineLink from '@/components/links/UnderlineLink';
 
 export default function Login() {
   const router = useRouter();
@@ -98,7 +99,7 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div className='px-10 lg:px-0'>
       <ToastContainer
         position='top-right'
         autoClose={5000}
@@ -114,15 +115,19 @@ export default function Login() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
-      <main className=''>
-        <div className='grid h-screen grid-flow-row grid-cols-3'>
+      <div className='mb-10'>
+        <Header isActive={undefined} />
+      </div>
+      
+      <main className='w-full lg:w-screen'>
+        <div className='flex flex-row w-full'>
           {/* //#region  //*============== Form region */}
-          <div className='col-span-2 py-40 px-[3rem] xl:px-[6.25rem]'>
+          <div className='w-full lg:w-[55%] lg:py-40 lg:px-[3rem] xl:px-[6.25rem]'>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className='flex flex-col gap-y-[1.875rem]'
             >
-              <div className='flex w-[41.375rem] flex-row justify-between'>
+              <div className='flex w-full lg:w-[41.375rem] flex-col gap-y-4 lg:flex-row justify-between'>
                 <div className='my-auto text-3xl font-semibold text-primary'>
                   Login
                 </div>
@@ -138,7 +143,7 @@ export default function Login() {
               </div>
 
               <div className='flex flex-col gap-y-[0.625rem]'>
-                <div className='text-2xl'>Email</div>
+                <div className='text-xl lg:text-2xl'>Email</div>
                 <div>
                   <input
                     {...register('email', {
@@ -147,39 +152,39 @@ export default function Login() {
                         /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,10})+$/,
                     })}
                     type='email'
-                    className='h-[4.875rem] w-[41.375rem] rounded-[0.625rem] border border-[#333] px-4 py-5'
+                    className='lg:h-[4.875rem] w-full lg:w-[41.375rem] rounded-[0.625rem] border border-[#333] lg:px-4 py-5'
                   />
                 </div>
               </div>
 
               <div className='flex flex-col gap-y-[0.625rem]'>
-                <div className='text-2xl'>Password</div>
+                <div className='text-xl lg:text-2xl'>Password</div>
                 <div>
                   <input
                     {...register('password', { required: true })}
                     type='password'
-                    className='h-[4.875rem] w-[41.375rem] rounded-[0.625rem] border border-[#333] px-4 py-5'
+                    className='lg:h-[4.875rem] w-full lg:w-[41.375rem] rounded-[0.625rem] border border-[#333] lg:px-4 py-5'
                   />
                 </div>
               </div>
 
               <div>
-                <Button type='submit' className='w-[41.375rem] text-black'>
+                <Button type='submit' className='w-full lg:w-[41.375rem] text-black'>
                   <div className='mx-auto'>Log In</div>
                 </Button>
               </div>
 
-              <div className='flex w-[41.375rem] flex-row justify-center gap-x-4'>
+              <div className='flex w-full lg:w-[41.375rem] flex-row justify-center gap-x-4'>
                 <div className='my-auto h-[0.5px] w-full bg-[#333]'></div>
                 <div className='my-auto text-2xl'>Or</div>
                 <div className='my-auto h-[0.5px] w-full bg-[#333]'></div>
               </div>
 
-              <div className='flex w-[41.375rem] flex-row gap-x-10'>
+              <div className='flex w-full lg:w-[41.375rem] flex-col lg:flex-row gap-x-10 gap-y-10'>
                 <div>
                   <Button
                     disabled
-                    className='h-[4.875rem] w-[19.375rem] rounded-[0.625rem] border border-black bg-white text-black hover:text-black'
+                    className='lg:h-[4.875rem] w-full lg:w-[19.375rem] rounded-[0.625rem] border border-black bg-white text-black hover:text-black'
                   >
                     <div className='m-auto flex flex-row gap-x-4'>
                       <div>
@@ -193,7 +198,7 @@ export default function Login() {
                 <div>
                   <Button
                     disabled
-                    className='h-[4.875rem] w-[19.375rem] rounded-[0.625rem] border border-black bg-white text-black hover:text-black'
+                    className='lg:h-[4.875rem] w-full lg:w-[19.375rem] rounded-[0.625rem] border border-black bg-white text-black hover:text-black'
                   >
                     <div className='m-auto flex flex-row gap-x-4'>
                       <div>
@@ -205,7 +210,7 @@ export default function Login() {
                 </div>
               </div>
 
-              <div className='mt-10'>
+              <div className='mt-10 mb-10 lg:mb-0'>
               <UnderlineLink href='/forgot'>Forgot Password?</UnderlineLink>
             </div>
             </form>
@@ -213,16 +218,14 @@ export default function Login() {
           {/* //#endregion  //*============== Form region */}
 
           {/* //#region  //*============== Content region */}
-          <div className='col-span-1 bg-primary-100 py-40 px-10'>
+          <div className='hidden lg:flex w-[45%] bg-primary-100 py-40 px-10'>
             <div className='flex flex-col gap-y-10'>
-              {/* <img className='mx-auto w-[16.39625rem] h-[33rem]' src='/images/device-frame.png' width={0} height={0} alt='' /> */}
-
               <picture>
                 <source srcSet='/images/device-frame.png' type='image/png' />
                 <img
                   src='/images/device-frame.png'
                   alt=''
-                  className='m-auto mt-20 w-[55%] xl:-mt-6'
+                  className='m-auto mt-20 w-[50%] xl:-mt-6'
                 />
               </picture>
               <div className='text-center'>
@@ -239,6 +242,6 @@ export default function Login() {
           {/* //#endregion  //*============== Content region */}
         </div>
       </main>
-    </>
+    </div>
   );
 }
