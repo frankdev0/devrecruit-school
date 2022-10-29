@@ -1,3 +1,4 @@
+// eslint-disable-next-line simple-import-sort/imports
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import {
   addDoc,
@@ -22,12 +23,24 @@ import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import { sendTransactionalMail } from '@/modules';
+import { MAIL_ENDPOINT, MAIL_TOKEN } from '@/constant/env';
+import { MailtrapClient } from 'mailtrap';
 
 export default function Register() {
   const [page, setPage] = useState(0);
   const [accept, setAccept] = useState(false);
   // const certificate = useRef(false);
   const [certificate, setCertificate] = useState(false);
+
+  const client = new MailtrapClient({
+    endpoint: MAIL_ENDPOINT,
+    token: MAIL_TOKEN,
+  });
+
+  const sender = {
+    email: 'training@devrecruitschool.com',
+    name: 'Devrecruit Training',
+  };
 
   const [userData, setUserData] = useState<any>({
     full_name: '',
@@ -69,9 +82,48 @@ export default function Register() {
             const ref = response.data.reference;
 
             toast.update(id, { render: "Payment completed Successfully!", type: "success", isLoading: false, autoClose: 3000 })
-            await sendTransactionalMail(email, amount, name, ref)
+            await sendTransactionalMail('oyinkansolababatunde30@gmail.com', amount, name, ref)
 
-            .then(async() => {
+            const recipients = [
+              {
+                email: 'oyinkansolababatunde30@gmail.com',
+              },
+            ];
+          
+            await client
+              .send({
+                from: sender,
+                to: recipients,
+                subject: `Payment Confirmation & Registration`,
+                text: `
+                Dear ${name}
+                
+                Your Registration Payment for Cyber security Introductory Course has been received and confirmed for processing.
+                
+                Kindly find below the link to complete your Registration on the Learning Management System.
+                
+                 *Link*____________
+                
+          
+                 Payment Reference: ${ref}
+          
+                Regards
+                
+                (*Community Manager*)
+                DevRecruit Training School.
+                `,
+                category: 'Payment Confirmation & Registration',
+              })
+              .then((response) => {
+                console.log(response)
+                // return response
+              })
+              .catch((err) => {
+                console.error(err)
+                // return err;
+              });
+
+            // .then(async() => {
               const user = query(
                 collection(db, 'users'),
                 where('email', '==', email)
@@ -92,7 +144,7 @@ export default function Register() {
                   // }, 3000);
                 });
               });
-            })
+            // })
             
           }
         })

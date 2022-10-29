@@ -150,14 +150,14 @@ export const sendTransactionalMail = async (
       (*Community Manager*)
       DevRecruit Training School.
       `,
-      category: 'Payment Confirmation',
+      category: 'Payment Confirmation & Registration',
     })
     .then((response) => {
       console.log(response)
-      return response
+      // return response
     })
     .catch((err) => {
       console.error(err)
-      return err;
+      // return err;
     });
 };
