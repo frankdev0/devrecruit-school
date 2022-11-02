@@ -1,5 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { Popover, Transition } from '@headlessui/react'
+import {
+  Bars3Icon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
+import Link from 'next/link';
 import * as React from 'react';
+import { Fragment } from 'react'
 
 import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -69,59 +76,7 @@ export default function Header({ isActive }: Props) {
         </div>
       </header>
 
-
-      <nav className="lg:hidden bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded w-full">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <div className="flex items-center">
-            <UnstyledLink href='/'>
-              <img
-                className="mr-3 h-16 sm:h-9"
-                src='/images/logo.png'
-                alt='Icon'
-              />
-            </UnstyledLink>
-          </div>
-          <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none" aria-controls="navbar-default" aria-expanded="false">
-            <span className="sr-only">Open main menu</span>
-            <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
-          </button>
-          <div className="hidden w-full md:block md:w-auto relative" id="navbar-default">
-            <ul className="flex flex-col w-full p-4 mt-4 bg-gray-50 absolute rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <UnstyledLink href='/'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/about'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">About</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/courses'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Courses</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/pricing'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Pricing</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/login'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Login</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/register'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Enroll Now</div>
-                </li>
-              </UnstyledLink>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
+      <MobileNav />
     </>
   );
 }
@@ -176,57 +131,118 @@ export function HeaderDark({ isActive }: Props) {
         </div>
       </header>
 
-      <nav className="lg:hidden z-50  px-2 sm:px-4 py-2.5 rounded w-full">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <div className="flex items-center">
-            <UnstyledLink href='/'>
-              <img
-                className="mr-3 h-16 sm:h-9"
-                src='/images/logo.png'
-                alt='Icon'
-              />
-            </UnstyledLink>
-          </div>
-          <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none" aria-controls="navbar-default" aria-expanded="false">
-            <span className="sr-only">Open main menu</span>
-            <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
-          </button>
-          <div className="hidden w-full md:block md:w-auto relative" id="navbar-default">
-            <ul className="flex flex-col w-full p-4 mt-4 bg-gray-50 absolute rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <UnstyledLink href='/'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/about'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">About</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/courses'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Courses</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/pricing'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Pricing</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/login'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Login</div>
-                </li>
-              </UnstyledLink>
-              <UnstyledLink href='/register'>
-                <li>
-                  <div className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Enroll Now</div>
-                </li>
-              </UnstyledLink>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <MobileNav />
     </>
   );
+}
+
+const mobile_links = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'About',
+    href: '/about',
+  },
+  {
+    name: 'Courses',
+    href: '/courses',
+  },
+  {
+    name: 'Pricing',
+    href: '/pricing'
+  },
+]
+
+function MobileNav() {
+  return (
+    <div className="lg:hidden z-50 w-full">
+      <Popover className="relative">
+        <div className="mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
+            <div className="flex justify-start lg:w-0 lg:flex-1">
+              <Link href='/'>
+                <img
+                  className="h-10 w-auto sm:h-20"
+                  src="/images/logo.png"
+                  alt=""
+                />
+              </Link>
+            </div>
+            <div className="-my-2 -mr-2 md:hidden">
+              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                <span className="sr-only">Open menu</span>
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              </Popover.Button>
+            </div>
+          </div>
+        </div>
+
+        <Transition
+          as={Fragment}
+          enter="duration-200 ease-out"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="duration-100 ease-in"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden">
+            <div className="rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="px-5 pt-5 pb-6">
+                <div className="flex items-center justify-between">
+                  <Link href='/'>
+                    <div>
+                      <img
+                        className="h-10 w-auto"
+                        src="/images/logo.png"
+                        alt="Your Company"
+                      />
+                    </div>
+                  </Link>
+                  <div className="-mr-2">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </Popover.Button>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-6 py-6 px-5">
+                <div className="grid grid-cols-2 gap-y-4 gap-x-8 -mt-4">
+                  {mobile_links.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div>
+                  <Link href='/register'>
+                    <div
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-700"
+                    >
+                      Enroll Now
+                    </div>
+                  </Link>
+                  <p className="mt-6 text-center text-base font-medium text-gray-500">
+                    Existing user?{' '}
+                    <Link href='/login'>
+                      <div className="text-primary-600 hover:text-primary-500">
+                        Log In
+                      </div>
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Popover.Panel>
+        </Transition>
+      </Popover>
+    </div>
+  )
 }

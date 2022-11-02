@@ -11,7 +11,7 @@ import {
 } from 'firebase/firestore';
 import { db } from 'init_firebase';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import uniqid from 'uniqid';
@@ -22,25 +22,31 @@ import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
-import { sendTransactionalMail } from '@/modules';
-import { MAIL_ENDPOINT, MAIL_TOKEN } from '@/constant/env';
-import { MailtrapClient } from 'mailtrap';
+import { userStore } from '@/store';
 
 export default function Register() {
   const [page, setPage] = useState(0);
   const [accept, setAccept] = useState(false);
-  // const certificate = useRef(false);
+  const { set_payment_details, remove_payment_details } = userStore();
+  const [sendMail, setSendMail] = useState(false);
   const [certificate, setCertificate] = useState(false);
-
-  const client = new MailtrapClient({
-    endpoint: MAIL_ENDPOINT,
-    token: MAIL_TOKEN,
+  const [mailData, setMailData] = useState({
+    amount: 0,
+    created_at: "",
+    currency: "",
+    customer:
+      { 
+        name: '',
+      phone_number: '', 
+      email: '' 
+    },
+    device_fingerprint: "",
+    ip: "",
+    narration: "",
+    payment_type: "",
+    reference:"",
+    status:"",
   });
-
-  const sender = {
-    email: 'training@devrecruitschool.com',
-    name: 'Devrecruit Training',
-  };
 
   const [userData, setUserData] = useState<any>({
     full_name: '',
@@ -59,107 +65,55 @@ export default function Register() {
   } = useForm();
   const router = useRouter();
 
-  if (router.query.status) {
-    const id = toast.loading('Processing Payment...');
+  // if (sendMail) {
+  //   console.log(sendMail);
+  //   console.log(mailData);
 
-    if (router.query.status === 'success') {
-      fetch(
-        `https://portal.blacbox.app/v1/api/payment/verify/${router.query.reference}/`,
-        {
-          headers: {
-            Authorization:
-              'Bearer dc_test_2832868d2e9528e2c6eed55f56ff6790df2f68ab',
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then(async (response) => {
-          // console.log(response);
-          if (response.status) {
-            const email = response.data.customer.email;
-            const amount = response.data.amount;
-            const name = response.data.customer.name;
-            const ref = response.data.reference;
+  //   const client = new MailtrapClient({ endpoint: MAIL_ENDPOINT, token: MAIL_TOKEN });
 
-            toast.update(id, { render: "Payment completed Successfully!", type: "success", isLoading: false, autoClose: 3000 })
-            await sendTransactionalMail('oyinkansolababatunde30@gmail.com', amount, name, ref)
+  //   const sender = {
+  //     email: 'training@devrecruitschool.com',
+  //     name: 'Devrecruit Training',
+  //   };
+  //   const recipients = [
+  //     {
+  //       email: 'oyinkansolababatunde30@gmail.com',
+  //     },
+  //     // {
+  //     //   email: mailData.customer.email
+  //     // },
+  //   ];
 
-            const recipients = [
-              {
-                email: 'oyinkansolababatunde30@gmail.com',
-              },
-            ];
-          
-            await client
-              .send({
-                from: sender,
-                to: recipients,
-                subject: `Payment Confirmation & Registration`,
-                text: `
-                Dear ${name}
-                
-                Your Registration Payment for Cyber security Introductory Course has been received and confirmed for processing.
-                
-                Kindly find below the link to complete your Registration on the Learning Management System.
-                
-                 *Link*____________
-                
-          
-                 Payment Reference: ${ref}
-          
-                Regards
-                
-                (*Community Manager*)
-                DevRecruit Training School.
-                `,
-                category: 'Payment Confirmation & Registration',
-              })
-              .then((response) => {
-                console.log(response)
-                // return response
-              })
-              .catch((err) => {
-                console.error(err)
-                // return err;
-              });
+  //   client
+  //     .send({
+  //       from: sender,
+  //       to: recipients,
+  //       subject: 'Payment Confirmation & Registration',
+  //       text: `
+  //     Dear ${mailData.customer.name}
+      
+  //     Your Registration Payment for Cyber security 
+  //     Introductory Course has been received and 
+  //     confirmed for processing.
+      
+  //     Kindly find below the link to complete your
+  //     Registration on the Learning Management System.
+      
+  //     *Link*____________
+      
 
-            // .then(async() => {
-              const user = query(
-                collection(db, 'users'),
-                where('email', '==', email)
-              );
-  
-              const querySnapshot = await getDocs(user);
-              querySnapshot.forEach(async (d) => {
-                // d.data() is never undefined for query d snapshots
-                const usersRef = doc(db, 'users', d.id);
-  
-                await updateDoc(usersRef, {
-                  paid: true,
-                  payment_details: response.data,
-                }).then(() => {
-                  toast.info('Redirecting to login.');
-                  // setTimeout(() => {
-                  //   router.push('/login');
-                  // }, 3000);
-                });
-              });
-            // })
-            
-          }
-        })
-        .catch((error) => console.log(error));
-    } else {
-      toast.update(id, { render: "Payment failed!", type: "error", isLoading: false, autoClose: 3000 })
+  //     Payment Reference: ${mailData.reference}
 
-      const notice = toast.loading('Running checks');
-      toast.update(notice, { render: "Login to complete payment | Redirecting to login", type: "error", isLoading: false, autoClose: 3000 })
-
-      setTimeout(() => {
-        router.push('/login');
-      }, 3000);
-    }
-  }
+  //   Regards
+      
+  //   (*Community Manager*)
+  //   DevRecruit Training School.
+  //     `,
+  //       category: 'Payment Confirmation & Registration',
+  //     })
+  //     .then((response) => console.log(response))
+  //     .catch((err) => console.error(err))
+  // }
 
   const onSubmit = async (data: { [key: string]: any }) => {
     if (data.password.length < 8 || data.confirm_password.length < 8) {
@@ -172,7 +126,7 @@ export default function Register() {
       return;
     }
 
-    data.custom_id = uniqid.time('DRS-');
+    data.custom_id = uniqid.time('DRS-').toUpperCase();
 
     const id = toast.loading('Processing...');
 
@@ -837,6 +791,79 @@ export default function Register() {
       setCertificate(false)
     }
   }, [watch('digital_certificate')])
+
+
+  useEffect(() => {
+    if (router.query.status) {
+      const id = toast.loading('Processing Payment...');
+  
+      if (router.query.status === 'success') {
+        fetch(
+          `https://portal.blacbox.app/v1/api/payment/verify/${router.query.reference}/`,
+          {
+            headers: {
+              Authorization:
+                'Bearer dc_test_2832868d2e9528e2c6eed55f56ff6790df2f68ab',
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then(async (response) => {
+            // console.log(response);
+            if (response.status) {
+              remove_payment_details()
+              const email = response.data.customer.email;
+              const amount = response.data.amount;
+              const name = response.data.customer.name;
+              const ref = response.data.reference;
+  
+              toast.update(id, { render: "Payment completed Successfully!", type: "success", isLoading: false, autoClose: 3000 })
+              setSendMail(true);
+              setMailData(response.data);
+              set_payment_details(response.data)
+              
+              const user = query(
+                collection(db, 'users'),
+                where('email', '==', email)
+              );
+  
+              const querySnapshot = await getDocs(user);
+              querySnapshot.forEach(async (d) => {
+                // d.data() is never undefined for query d snapshots
+                const usersRef = doc(db, 'users', d.id);
+  
+                await updateDoc(usersRef, {
+                  paid: true,
+                  payment_details: response.data,
+                }).then(() => {
+                  toast.info('Redirecting...');
+                  setTimeout(() => {
+                    router.push('/test');
+                  }, 3000);
+                });
+              });
+              // })
+  
+            }
+          })
+          .catch((error) => console.log(error));
+      } else {
+        toast.update(id, { render: "Payment failed!", type: "error", isLoading: false, autoClose: 3000 })
+  
+        const notice = toast.loading('Running checks');
+        toast.update(notice, { render: "Login to complete payment | Redirecting to login", type: "error", isLoading: false, autoClose: 3000 })
+  
+        setTimeout(() => {
+          router.push('/login');
+        }, 3000);
+      }
+    }
+    
+    if (sendMail) {
+      console.log(sendMail);
+    }
+  }, [router, sendMail])
+
 
 
 

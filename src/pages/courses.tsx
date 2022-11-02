@@ -46,7 +46,7 @@ export default function Courses() {
         <section className='bg-white'>
           <div className='flex min-h-screen flex-col'>
             {/* //#region  //*============== About Banner */}
-            <div className='relative -mt-[10.3rem] lg:-mt-36 h-[31.25rem]'>
+            <div className='relative -mt-[10.5rem] lg:-mt-36 h-[31.25rem]'>
               <div className='mx-auto object-cover'>
                 <picture>
                   <source
@@ -114,7 +114,7 @@ export default function Courses() {
             {/* //#endregion  //*============== About Banner */}
 
             {/* //#region  //*============== Course Module */}
-            <div className='mt-10 lg:mt-20 flex w-full flex-col lg:px-20 px-[1.875rem]'>
+            <div className='mt-10 lg:mt-20 xl:mt-72 flex w-full flex-col lg:px-20 px-[1.875rem]'>
               <div className='flex flex-col justify-between gap-y-6'>
                 <div className='flex flex-row justify-between'>
                   <div className='text-3xl font-header'>Course Module</div>

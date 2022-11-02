@@ -11,6 +11,7 @@ import { userStore } from '@/store';
 import { logOut } from '@/modules';
 
 import Nav from './Nav';
+import { RiBookLine } from 'react-icons/ri';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -51,12 +52,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           />
         </div>
 
-        <div className='flex h-screen w-[15.4375rem] flex-col rounded-tr-[6.625rem] border-r bg-[#447175] py-8'>
+        <div className='flex h-screen w-[10rem] lg:w-[15.4375rem] flex-col rounded-tr-[6.625rem] border-r bg-[#447175] py-8'>
           <div className='mt-[4.6875rem] flex flex-1 flex-col justify-between'>
             <nav>
-              <Link href='/users/dashboard'>
+            <Link href='/users/courses'>
                 <div className={clsx(
-                  router.asPath === '/users/dashboard' ? 'bg-gray-100 text-[#447175]' : 'text-white transition-colors duration-300 hover:bg-white hover:font-semibold hover:text-[#447175]',
+                  router.asPath === '/users/courses' ? 'bg-gray-100 text-[#447175]' : 'text-white transition-colors duration-300 hover:bg-white hover:font-semibold hover:text-[#447175]',
+                  'mt-5 flex transform items-center rounded-tr-[0.625rem] px-4 py-2 cursor-pointer'
+                )}>
+                  <RiBookLine className='w-5 h-5' />
+
+                  <span className='mx-4'>Courses</span>
+                </div>
+              </Link>
+              
+              <Link href='/users/profile'>
+                <div className={clsx(
+                  router.asPath === '/users/profile' ? 'bg-gray-100 text-[#447175]' : 'text-white transition-colors duration-300 hover:bg-white hover:font-semibold hover:text-[#447175]',
                   'mt-5 flex transform items-center rounded-tr-[0.625rem] px-4 py-2 cursor-pointer'
                 )}>
                   <svg
@@ -102,7 +114,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </nav>
 
             <div className='-mx-2 flex items-center px-4'>
-              <div onClick={handleLogout} className='mx-2 font-medium text-gray-800 hover:underline dark:text-gray-200 cursor-nw-resize'>
+              <div onClick={handleLogout} className='mx-2 font-medium text-white hover:underline cursor-nw-resize'>
                 <div className='flex flex-row gap-x-[1.375rem]'>
                   <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">

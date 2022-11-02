@@ -56,7 +56,7 @@ export default function Login() {
           if (!user.paid) {
             handlePayment(user);
           } else {
-            router.push('/users/dashboard')
+            router.push('/users/courses')
           }
         });
       })
@@ -219,13 +219,13 @@ export default function Login() {
 
           {/* //#region  //*============== Content region */}
           <div className='hidden lg:flex w-[45%] bg-primary-100 py-40 px-10'>
-            <div className='flex flex-col gap-y-10'>
+            <div className='flex flex-col gap-y-10 mx-auto'>
               <picture>
                 <source srcSet='/images/device-frame.png' type='image/png' />
                 <img
                   src='/images/device-frame.png'
                   alt=''
-                  className='m-auto mt-20 w-[50%] xl:-mt-6'
+                  className='m-auto mt-20 w-[50%] lg:w-auto xl:-mt-6'
                 />
               </picture>
               <div className='text-center'>

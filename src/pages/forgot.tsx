@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 import Button from '@/components/buttons/Button';
 import Seo from '@/components/Seo';
+import Header from '@/components/layout/Header';
 
 
 export default function Forgot() {
@@ -51,22 +52,26 @@ export default function Forgot() {
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
-      <main className=''>
-        <div className='grid h-screen grid-flow-row grid-cols-3'>
+      <div className='mb-10'>
+        <Header isActive={undefined} />
+      </div>
+      
+      <main className='w-full'>
+        <div className='h-screen flex flex-row justify-items-center'>
           {/* //#region  //*============== Form region */}
-          <div className='col-span-2 py-40 px-[3rem] xl:px-[6.25rem]'>
+          <div className='w-full lg:w-[55%] lg:py-40 px-[2rem] lg:px-[3rem] xl:px-[6.25rem]'>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className='flex flex-col gap-y-[1.875rem]'
             >
-              <div className='flex w-[41.375rem] flex-row justify-between'>
-                <div className='my-auto text-3xl font-semibold text-primary'>
+              <div className='flex lg:w-[41.375rem] flex-row justify-between'>
+                <div className='my-auto text-2xl lg:text-3xl font-semibold text-primary'>
                   Reset Password
                 </div>
               </div>
 
               <div className='flex flex-col gap-y-[0.625rem]'>
-                <div className='text-2xl'>Email</div>
+                <div className='text-xl lg:text-2xl'>Email</div>
                 <div>
                   <input
                     {...register('email', {
@@ -75,15 +80,15 @@ export default function Forgot() {
                         /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,10})+$/,
                     })}
                     type='email'
-                    className='h-[4.875rem] w-[41.375rem] rounded-[0.625rem] border border-[#333] px-4 py-5'
+                    className='w-full lg:h-[4.875rem] lg:w-[41.375rem] rounded-[0.625rem] border border-[#333] lg:px-4 lg:py-5'
                   />
                 </div>
               </div>
 
 
-              <div>
-                <Button type='submit' className='w-[41.375rem] text-black'>
-                  <div className='mx-auto'>Reset Password</div>
+              <div className=''>
+                <Button type='submit' className='w-full lg:w-[41.375rem] text-black'>
+                  <div className='mx-auto'>Submit</div>
                 </Button>
               </div>
 
@@ -92,7 +97,7 @@ export default function Forgot() {
           {/* //#endregion  //*============== Form region */}
 
           {/* //#region  //*============== Content region */}
-          <div className='col-span-1 bg-primary-100 py-40 px-10'>
+          <div className='hidden lg:flex w-[45%] bg-primary-100 py-40 px-10'>
             <div className='flex flex-col gap-y-10'>
               {/* <img className='mx-auto w-[16.39625rem] h-[33rem]' src='/images/device-frame.png' width={0} height={0} alt='' /> */}
 

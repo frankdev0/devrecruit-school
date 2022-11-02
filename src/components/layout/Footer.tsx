@@ -8,8 +8,8 @@ import Ellipse from '~/svg/Ellipse.svg';
 
 export default function Footer() {
   return (
-    <div className='hidden relative mt-20 lg:flex flex-col'>
-      <footer className='w-full absolute bottom-2 flex flex-row gap-x-24 text-gray-700'>
+    <div className='relative mt-[55rem] lg:mt-20 lg:flex flex-col'>
+      <footer className='w-full absolute bottom-2 flex flex-col lg:flex-row gap-x-24 text-gray-700'>
         <div className='flex flex-col items-center space-y-12'>
           <div>
             <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='my-auto flex flex-col gap-y-6'>
+        <div className='my-auto flex flex-col gap-y-6 py-6 mt-10 lg:mt-0 mx-auto lg:mx-0 text-center lg:text-left'>
           <div className='text-2xl font-medium font-header'>About Us</div>
 
           <div className='flex flex-col gap-y-4'>
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='my-auto flex flex-col gap-y-6'>
+        <div className='my-auto flex flex-col gap-y-6 py-6 mx-auto lg:mx-0 text-center lg:text-left'>
           <div className='text-2xl font-medium font-header'>Our Service</div>
 
           <div className='flex flex-col gap-y-4'>
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='my-auto flex flex-col gap-y-6'>
+        <div className='my-auto flex flex-col gap-y-6 py-6 mx-auto lg:mx-0 text-center lg:text-left'>
           <div className='text-2xl font-medium font-header'>Information</div>
 
           <div className='flex flex-col gap-y-4'>
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
 
-        <div className='my-auto flex flex-col gap-y-6'>
+        <div className='my-auto flex flex-col gap-y-6 py-6 mx-auto lg:mx-0 text-center lg:text-left'>
           <div className='text-2xl font-medium font-header'>Contact</div>
 
           <div className='flex flex-col gap-y-4'>

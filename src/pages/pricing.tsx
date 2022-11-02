@@ -9,11 +9,11 @@ import Seo from '@/components/Seo';
 
 export default function Pricing() {
   return (
-    <Layout isDark>
+    <Layout>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
-      <main className='-mt-[5.3rem] lg:mt-20'>
+      <main className='-mt-[5.5rem] lg:mt-20'>
         <section className='bg-white'>
           <div className='flex min-h-screen flex-col'>
             {/* //#region  //*============== About Banner */}
@@ -33,7 +33,7 @@ export default function Pricing() {
 
                   <div className='flex flex-col lg:flex-row justify-center gap-x-20 gap-y-[1.875rem] px-10'>
                     <div className='flex w-full h-[16rem] lg:w-[34.5rem] flex-col gap-y-2 lg:gap-y-10 bg-white p-8 lg:p-20 shadow-2xl'>
-                      <div className='text-left text-3xl font-header'>Early bird</div>
+                      <div className='text-left text-3xl font-header'>Early Bird</div>
 
                       <div className='flex flex-row gap-x-2'>
                         <div className='flex flex-col gap-y-2 text-left text-primary-800'>
@@ -61,7 +61,7 @@ export default function Pricing() {
 
                     <div className='flex w-full h-[16rem] lg:h-[28rem] lg:w-[34.5rem] flex-col gap-y-2 lg:gap-y-10 bg-white p-8 lg:p-20 shadow-2xl'>
                       <div className='text-left text-2xl font-header'>
-                        Late registration
+                        Late Registration
                       </div>
 
                       <div className='flex flex-row gap-x-2'>

@@ -30,7 +30,7 @@ module.exports = {
       '/privacy': { page: '/privacy' },
       '/register': { page: '/register' },
       '/users/chat': { page: '/users/chat' },
-      '/users/dashboard': { page: '/users/dashboard' },
+      '/users/courses': { page: '/users/courses' },
       '/users/settings': { page: '/users/settings' },
       // '/p/deploy-nextjs': { page: '/post', query: { title: 'deploy-nextjs' } },
     }
