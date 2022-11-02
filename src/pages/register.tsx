@@ -838,7 +838,7 @@ export default function Register() {
                 }).then(() => {
                   toast.info('Redirecting...');
                   setTimeout(() => {
-                    router.push('/test');
+                    router.push('/send_mail');
                   }, 3000);
                 });
               });

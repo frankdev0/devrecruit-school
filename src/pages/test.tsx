@@ -1,41 +1,42 @@
 /* eslint-disable @next/next/no-img-element */
 import { MailtrapClient } from 'mailtrap';
+import moment from 'moment';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 import { userStore } from '@/store';
 
 import { MAIL_ENDPOINT, MAIL_TOKEN } from '@/constant/env';
-import moment from 'moment';
 
 
 export default function Test() {
   const { payment_details } = userStore();
   const router = useRouter();
 
-    // if (payment_details?.amount === 0) {
-    //   router.push('/register');
-    //   return;
-    // }
+  if (payment_details?.amount === 0) {
+    router.push('/register');
+    return <div>Loading...</div>
+  }
 
-    const client = new MailtrapClient({ endpoint: MAIL_ENDPOINT, token: MAIL_TOKEN });
+  // const client = new MailtrapClient({ endpoint: MAIL_ENDPOINT, token: MAIL_TOKEN });
 
-  //   const sender = {
-  //     email: 'training@devrecruitschool.com',
-  //     name: 'Devrecruit Training',
-  //   };
-  //   const recipients = [
-  //     {
-  //       email: payment_details?.customer.email ? payment_details?.customer.email : 'training@devrecruitschool.com',
-  //     },
-  //   ];
+  // const sender = {
+  //   email: 'training@devrecruitschool.com',
+  //   name: 'Devrecruit Training',
+  // };
+  // const recipients = [
+  //   {
+  //     // email: payment_details?.customer.email ? payment_details?.customer.email : 'training@devrecruitschool.com',
+  //     email: 'oyinkansolababatunde30@gmail.com'
+  //   },
+  // ];
 
-  //   client
-  //     .send({
-  //       from: sender,
-  //       to: recipients,
-  //       subject: 'Payment Confirmation & Registration',
-  //       text: `
+  // client
+  //   .send({
+  //     from: sender,
+  //     to: recipients,
+  //     subject: 'Payment Confirmation & Registration',
+  //     html: `
   //       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   //       <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -152,68 +153,121 @@ export default function Test() {
   //         </style>
   //       </head>
 
-  //         Dear  ${payment_details?.customer.name},
+  //       <body class='invoice_body'>
+  //       <div class="invoice-box">
+  //         <table>
+  //           <tr class="top">
+  //             <td>
+  //               <table>
+  //                 <tr>
+  //                   <td class="title">
+  //                     <img src="https://devrecruitschool.com/images/logo.png" alt="Devrecruit logo" style="width: 30%; maxWidth: 300px" />
+  //                   </td>
+  
+  //                   <td>
+  //                     Ref #: ${payment_details?.reference}<br />
+  //                     Date: ${moment(payment_details?.created_at).format('YYYY-MM-DD')}<br />
+  //                   </td>
+  //                 </tr>
+  //               </table>
+  //             </td>
+  //           </tr>
+  
+  //           <tr class="information">
+  //             <td>
+  //               <table>
+  //                 <tr>
+  //                   <td>
+  //                     Devrecruit School.<br />
+  //                     21, Ibrahim Nyesi Tella<br />
+  //                     Lekki, Lagos, Nigeria
+  //                   </td>
+  
+  //                   <td>
+  //                   ${payment_details?.customer.name}
+  //                   <br />
+  //                   ${payment_details?.customer.email}
+  //                   </td>
+  //                 </tr>
+  //               </table>
+  //             </td>
+  //           </tr>
 
-  //         You Registration and Payment for the Cybersecurity Training has be confirmed.
+  //           <br />
+  //           <br />
+  
+  //           <tr class="heading">
+  //             <td>
+  //               Dear  ${payment_details?.customer.name},
+  //             </td>
+  
+  //             <td></td>
+  //           </tr>
+  
+  //           <tr class="details">
+  //             <td>
+  //               <div>Your Registration and Payment for the Cybersecurity Training has been confirmed.</div>
+  
+  //               <div>Please find Payment Details below:</div>
+  
+  //               <br />
+  
+  //               <div>Course: Cybersecurity Training</div>
+  //               <div>Amount: ₦${payment_details?.amount}</div>
+  //               <div>Ref Number: ${payment_details?.reference}</div>
+  //               <div>Customer Name: ${payment_details?.customer.name}</div>
+  //               <div>Phone Number: ${payment_details?.customer.phone_number}</div>
+  //               <div>Email: ${payment_details?.customer.email}</div>
+  
+  //               <br />
+  
+  //               <div>
+  //                 Begin your journey into tech. We will communicate and notify you as we progress.
+  //                 Please check your email for any further information, Thank you.
+  //               </div>
+  
+  //               <br />
+  //               <div>Regards</div>
+  
+  //               <div>Community Manager</div>
+  //               <div>DevRecruit Training School</div>
+  //             </td>
+  
+  //             <td></td>
+  //           </tr>
 
-  //         Please find Payment Details before:
-
-  //         Course: Cybersecurity Training 
-  //         Amount: N15,000
-  //         Ref Number:
-  //         Your Candidate No:
-
-  //         Your Community Manager
-  //         + Fullname
-  //         + Phone No
-  //         + Email 
-
-  //         Thank you. Begin your journey into tech. We will communicate and notify you as we progress.
-
-  //         Please check your emails for any further information.
-
-  //         Regards
-
-  //         ('Community Manager')
-  //         DevRecruit Training School
+  //           <br />
+  
+  //           <tr class="heading">
+  //             <td>Item</td>
+  
+  //             <td>Price</td>
+  //           </tr>
+  
+  //           <tr class="item">
+  //             <td>Introduction to Information/Cyber Security</td>
+  
+  //             <td>₦15,000.00</td>
+  //           </tr>
+  
+  //           <tr class="total">
+  //             <td></td>
+  
+  //             <td>Total: ₦15,000.00</td>
+  //           </tr>
+  //         </table>
+  //       </div>
+  //     </body>
   // </html>
   //       `,
-  //       category: 'Payment Confirmation & Registration',
-  //     })
-  //     .then((response) => console.log(response))
-  //     .catch((err) => console.error(err))
+  //     category: 'Payment Confirmation & Registration',
+  //   })
+  //   .then((response) => console.log(response))
+  //   .catch((err) => console.error(err))
 
 
 
   return (
-    // <div className='receipt_body'>
-    //   <div className='receipt_content'>
-    //     <div className='receipt_flex_row overflow_receipt'>
-    //       <div className='receipt_my_auto'>
-    //         <img src='/images/logo.png' alt='Devrecruit Logo' width='150' height='150' />
-    //       </div>
-
-    //       <div className='receipt_my_auto'>
-    //         Ref: Jibberish
-    //       </div>
-    //     </div>
-
-    //     <div className='receipt_flex_row receipt_my receipt_padding'>
-    //       <div className='receipt_flex_col'>
-    //         <div className='receipt_bold'>Billed To:</div>
-    //         <div>User Name</div>
-    //         <div>User Phone</div>
-    //       </div>
-
-    //       <div className='receipt_flex_col receipt_padding'>
-    //         <div className='receipt_bold receipt_text_right'>Beneficiary</div>
-    //         <div className='receipt_text_right'>Devrecruit School</div>
-    //         <div className='receipt_bold receipt_text_right'>Provider:</div>
-    //         <div className='receipt_text_right'>Flutterwave</div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <body className='invoice_body'>
       <div className="invoice-box">
         <table>
@@ -245,9 +299,9 @@ export default function Test() {
                   </td>
 
                   <td>
-                  {payment_details?.customer.name}
-                  <br />
-                  {payment_details?.customer.email}
+                    {payment_details?.customer.name}
+                    <br />
+                    {payment_details?.customer.email}
                   </td>
                 </tr>
               </table>
