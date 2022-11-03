@@ -23,7 +23,7 @@ import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import { userStore } from '@/store';
-import { BASE_URL } from '@/constant/env';
+import { BASE_URL, STAGING_URL } from '@/constant/env';
 
 export default function Register() {
   const [page, setPage] = useState(0);
@@ -183,7 +183,7 @@ export default function Register() {
         name: data.full_name,
         mobile: data.phone,
         title: 'Training School Fee',
-        callback_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/register' : `${BASE_URL}/register`,
+        callback_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/register' : `${STAGING_URL}/register`,
         logo: 'https://www.devrecruitschool.com/images/DevrRecruit%20Training%20Logo.png',
       }),
     })
@@ -616,8 +616,8 @@ export default function Register() {
               className='lg:h-[4.875rem] w-full lg:w-[41.375rem] rounded-[0.625rem] border border-[#333] px-4 py-5'
             >
               <option value=''>Select Option</option>
-              <option value='true'>Yes</option>
-              <option value='false'>No</option>
+              <option value='Physical'>Physical</option>
+              <option value='Digital'>Digital</option>
             </select>
           </div>
         </div>
