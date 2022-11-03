@@ -265,8 +265,8 @@ export default function Register() {
               className='lg:h-[4.875rem] w-full lg:w-[41.375rem] rounded-[0.625rem] border border-[#333] px-4 py-5'
             >
               <option value=''>Select Gender</option>
-              <option value='male'>Male</option>
-              <option value='female'>Female</option>
+              <option value='Male'>Male</option>
+              <option value='Female'>Female</option>
             </select>
           </div>
         </div>
@@ -838,7 +838,7 @@ export default function Register() {
                 }).then(() => {
                   toast.info('Redirecting...');
                   setTimeout(() => {
-                    router.push('/send_mail');
+                    router.push('/payment_details');
                   }, 3000);
                 });
               });
