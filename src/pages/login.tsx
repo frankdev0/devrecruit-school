@@ -17,6 +17,7 @@ import { userStore } from '@/store';
 
 import Apple from '~/svg/apple.svg';
 import Google from '~/svg/google.svg';
+import { BASE_URL } from '@/constant/env';
 
 export default function Login() {
   const router = useRouter();
@@ -86,7 +87,7 @@ export default function Login() {
         name: data.full_name,
         mobile: data.phone,
         title: 'Training School Fee',
-        callback_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/register' : 'https://devrecruitschool.com/register',
+        callback_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/register' : `${BASE_URL}/register`,
         logo: 'https://www.devrecruitschool.com/images/DevrRecruit%20Training%20Logo.png',
       }),
     })

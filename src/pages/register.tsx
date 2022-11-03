@@ -23,6 +23,7 @@ import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import { userStore } from '@/store';
+import { BASE_URL } from '@/constant/env';
 
 export default function Register() {
   const [page, setPage] = useState(0);
@@ -182,7 +183,7 @@ export default function Register() {
         name: data.full_name,
         mobile: data.phone,
         title: 'Training School Fee',
-        callback_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/register' : 'https://devrecruitschool.com/register',
+        callback_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/register' : `${BASE_URL}/register`,
         logo: 'https://www.devrecruitschool.com/images/DevrRecruit%20Training%20Logo.png',
       }),
     })
