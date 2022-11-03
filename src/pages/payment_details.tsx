@@ -27,8 +27,7 @@ export default function Test() {
 
   const recipients = [
     {
-      // email: payment_details?.customer.email ? payment_details?.customer.email : 'training@devrecruitschool.com',
-      email: 'oyinkansolababatunde30@gmail.com'
+      email: payment_details?.customer.email ? payment_details?.customer.email : 'oyinkansolababatunde30@gmail.com',
     },
   ];
 
