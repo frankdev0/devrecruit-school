@@ -30,7 +30,7 @@ export default function Register() {
   const [accept, setAccept] = useState(false);
   const { set_payment_details, remove_payment_details } = userStore();
   const [sendMail, setSendMail] = useState(false);
-  const [certificate, setCertificate] = useState(false);
+  const [certificate, setCertificate] = useState('');
   const [mailData, setMailData] = useState({
     amount: 0,
     created_at: "",
@@ -65,56 +65,6 @@ export default function Register() {
     formState: { errors },
   } = useForm();
   const router = useRouter();
-
-  // if (sendMail) {
-  //   console.log(sendMail);
-  //   console.log(mailData);
-
-  //   const client = new MailtrapClient({ endpoint: MAIL_ENDPOINT, token: MAIL_TOKEN });
-
-  //   const sender = {
-  //     email: 'training@devrecruitschool.com',
-  //     name: 'Devrecruit Training',
-  //   };
-  //   const recipients = [
-  //     {
-  //       email: 'oyinkansolababatunde30@gmail.com',
-  //     },
-  //     // {
-  //     //   email: mailData.customer.email
-  //     // },
-  //   ];
-
-  //   client
-  //     .send({
-  //       from: sender,
-  //       to: recipients,
-  //       subject: 'Payment Confirmation & Registration',
-  //       text: `
-  //     Dear ${mailData.customer.name}
-      
-  //     Your Registration Payment for Cyber security 
-  //     Introductory Course has been received and 
-  //     confirmed for processing.
-      
-  //     Kindly find below the link to complete your
-  //     Registration on the Learning Management System.
-      
-  //     *Link*____________
-      
-
-  //     Payment Reference: ${mailData.reference}
-
-  //   Regards
-      
-  //   (*Community Manager*)
-  //   DevRecruit Training School.
-  //     `,
-  //       category: 'Payment Confirmation & Registration',
-  //     })
-  //     .then((response) => console.log(response))
-  //     .catch((err) => console.error(err))
-  // }
 
   const onSubmit = async (data: { [key: string]: any }) => {
     if (data.password.length < 8 || data.confirm_password.length < 8) {
@@ -622,7 +572,7 @@ export default function Register() {
           </div>
         </div>
 
-        {certificate === true &&
+        {certificate === 'Physical' &&
           <div className='flex flex-col gap-y-[0.625rem]'>
             <div className='text-xl lg:text-2xl'>Provide Delivery Address</div>
             <div>
@@ -786,10 +736,10 @@ export default function Register() {
   useEffect(() => {
     const currentChoice = watch('digital_certificate');
 
-    if (currentChoice === 'true') {
-      setCertificate(true)
+    if (currentChoice === 'Physical') {
+      setCertificate('Physical')
     } else {
-      setCertificate(false)
+      setCertificate('')
     }
   }, [watch('digital_certificate')])
 
@@ -852,8 +802,6 @@ export default function Register() {
                   }, 3000);
                 });
               });
-              // })
-  
             }
           })
           .catch((error) => {
