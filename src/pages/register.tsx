@@ -11,7 +11,7 @@ import {
 } from 'firebase/firestore';
 import { db } from 'init_firebase';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import uniqid from 'uniqid';
@@ -23,7 +23,7 @@ import ButtonLink from '@/components/links/ButtonLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import { userStore } from '@/store';
-import { BASE_URL, STAGING_URL } from '@/constant/env';
+import { BASE_URL, CLOUD_FUNCTION_URL, STAGING_URL } from '@/constant/env';
 
 export default function Register() {
   const [page, setPage] = useState(0);
@@ -745,87 +745,85 @@ export default function Register() {
 
 
   useEffect(() => {
-    if (router.query.status) {
-      const id = toast.loading('Processing Payment...');
-  
-      if (router.query.status === 'success') {
-        fetch(
-          `https://portal.blacbox.app/v1/api/payment/verify/${router.query.reference}/`,
-          {
-            headers: {
-              Authorization:
-                'Bearer dc_test_2832868d2e9528e2c6eed55f56ff6790df2f68ab',
-            },
-          }
-        )
-          .then((res) => res.json())
-          .then(async (response) => {
-            // console.log(response);
-            if (response.status) {
-              remove_payment_details()
-              const email = response.data.customer.email;
-              
-              fetch('https://us-central1-training-school-b568f.cloudfunctions.net/sendTransactionEmail', {
-                method: 'POST',
-                body: JSON.stringify(response.data),
-                headers: {
-                  'Content-Type': 'application/json',
-                }
-              })
-              .then((res) => res.json())
-              .then((r) => console.log(r))
-              .catch((e) => console.error(e));
-              
-  
-              toast.update(id, { render: "Payment completed Successfully!", type: "success", isLoading: false, autoClose: 3000 })
-              setSendMail(true);
-              setMailData(response.data);
-              set_payment_details(response.data)
-              
-              const user = query(
-                collection(db, 'users'),
-                where('email', '==', email)
-              );
-  
-              const querySnapshot = await getDocs(user);
-              querySnapshot.forEach(async (d) => {
-                // d.data() is never undefined for query d snapshots
-                const usersRef = doc(db, 'users', d.id);
-  
-                await updateDoc(usersRef, {
-                  paid: true,
-                  payment_details: response.data,
-                }).then(() => {
-                  toast.info('Redirecting...');
-                  setTimeout(() => {
-                    router.push('/payment_details');
-                  }, 3000);
-                });
-              });
+    const verifyPayment = () => {
+      if (router.query.status) {
+        const id = toast.loading('Processing Payment...');
+    
+        if (router.query.status === 'success') {
+          fetch(
+            `https://portal.blacbox.app/v1/api/payment/verify/${router.query.reference}/`,
+            {
+              headers: {
+                Authorization:
+                  'Bearer dc_test_2832868d2e9528e2c6eed55f56ff6790df2f68ab',
+              },
             }
-          })
-          .catch((error) => {
-            console.log(error)
-            toast.update(id, { render: "Something Went Wrong!", type: "error", isLoading: false, autoClose: 3000 })
-          });
-      } else {
-        toast.update(id, { render: "Payment failed!", type: "error", isLoading: false, autoClose: 3000 })
-  
-        const notice = toast.loading('Running checks');
-        toast.update(notice, { render: "Login to complete payment | Redirecting to login", type: "error", isLoading: false, autoClose: 3000 })
-  
-        setTimeout(() => {
-          router.push('/login');
-        }, 3000);
+          )
+            .then((res) => res.json())
+            .then(async (response) => {
+              // console.log(response);
+              if (response.status) {
+                remove_payment_details()
+                const email = response.data.customer.email;
+                
+                fetch(`${CLOUD_FUNCTION_URL}/sendTransactionEmail`, {
+                  method: 'POST',
+                  body: JSON.stringify(response.data),
+                  headers: {
+                    'Content-Type': 'application/json',
+                  }
+                })
+                .then((res) => res.json())
+                .then((r) => console.log(r))
+                .catch((e) => console.error(e));
+                
+    
+                toast.update(id, { render: "Payment completed Successfully!", type: "success", isLoading: false, autoClose: 3000 })
+                setSendMail(true);
+                setMailData(response.data);
+                set_payment_details(response.data)
+                
+                const user = query(
+                  collection(db, 'users'),
+                  where('email', '==', email)
+                );
+    
+                const querySnapshot = await getDocs(user);
+                querySnapshot.forEach(async (d) => {
+                  // d.data() is never undefined for query d snapshots
+                  const usersRef = doc(db, 'users', d.id);
+    
+                  await updateDoc(usersRef, {
+                    paid: true,
+                    payment_details: response.data,
+                  }).then(() => {
+                    toast.info('Redirecting...');
+                    setTimeout(() => {
+                      router.push('/payment_details');
+                    }, 3000);
+                  });
+                });
+              }
+            })
+            .catch((error) => {
+              console.log(error)
+              toast.update(id, { render: "Something Went Wrong!", type: "error", isLoading: false, autoClose: 3000 })
+            });
+        } else {
+          toast.update(id, { render: "Payment failed!", type: "error", isLoading: false, autoClose: 3000 })
+    
+          const notice = toast.loading('Running checks');
+          toast.update(notice, { render: "Login to complete payment | Redirecting to login", type: "error", isLoading: false, autoClose: 3000 })
+    
+          setTimeout(() => {
+            router.push('/login');
+          }, 3000);
+        }
       }
     }
     
-    if (sendMail) {
-      console.log(sendMail);
-    }
-  }, [router, sendMail])
-
-
+    verifyPayment();
+  }, [remove_payment_details, router, set_payment_details])
 
 
   return (
