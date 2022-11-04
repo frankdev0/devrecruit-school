@@ -814,9 +814,18 @@ export default function Register() {
             if (response.status) {
               remove_payment_details()
               const email = response.data.customer.email;
-              const amount = response.data.amount;
-              const name = response.data.customer.name;
-              const ref = response.data.reference;
+              
+              fetch('https://us-central1-training-school-b568f.cloudfunctions.net/sendTransactionEmail', {
+                method: 'POST',
+                body: JSON.stringify(response.data),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+              .then((res) => res.json())
+              .then((r) => console.log(r))
+              .catch((e) => console.error(e));
+              
   
               toast.update(id, { render: "Payment completed Successfully!", type: "success", isLoading: false, autoClose: 3000 })
               setSendMail(true);
@@ -847,7 +856,10 @@ export default function Register() {
   
             }
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error)
+            toast.update(id, { render: "Something Went Wrong!", type: "error", isLoading: false, autoClose: 3000 })
+          });
       } else {
         toast.update(id, { render: "Payment failed!", type: "error", isLoading: false, autoClose: 3000 })
   
