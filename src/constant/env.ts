@@ -11,3 +11,5 @@ export const LIVE_URL = 'https://devrecruitschool.com/register/';
 
 export const MAIL_TOKEN = '51651f76f2def2cd4bd12c9645092abb';
 export const MAIL_ENDPOINT = 'https://send.api.mailtrap.io/';
+
+export const CLOUD_FUNCTION_URL = 'https://us-central1-training-school-b568f.cloudfunctions.net'
