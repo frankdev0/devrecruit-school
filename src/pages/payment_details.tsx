@@ -4,6 +4,8 @@ import moment from 'moment';
 import { useRouter } from 'next/router';
 import React from 'react';
 
+import Header from '@/components/layout/Header';
+
 import { userStore } from '@/store';
 
 import { MAIL_ENDPOINT, MAIL_TOKEN } from '@/constant/env';
@@ -267,6 +269,9 @@ export default function Test() {
     .catch((err) => console.error(err))
 
   return (
+    <>
+    <Header isActive={undefined} />
+    
     <body className='invoice_body'>
       <div className="invoice-box">
         <table>
@@ -368,5 +373,6 @@ export default function Test() {
         </table>
       </div>
     </body>
+    </>
   )
 }
