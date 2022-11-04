@@ -329,7 +329,7 @@ export default function Test() {
               <br />
 
               <div>Course: Cybersecurity Training</div>
-              <div>Amount: N15,000</div>
+              <div>Amount: ₦15,000</div>
               <div>Ref Number: {payment_details?.reference}</div>
               {/* <div>Your Community Manager</div> */}
               <div>Customer Name: {payment_details?.customer.name}</div>
