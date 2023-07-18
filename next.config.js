@@ -5,7 +5,7 @@ module.exports = {
   },
 
   reactStrictMode: true,
-  unoptimized: true,
+  // unoptimized: true,
   images: {
     loader: 'imgix',
     path: '/',
